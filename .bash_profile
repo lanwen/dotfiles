@@ -140,7 +140,7 @@ function prompt_command {
 	fi
 
 	# set new color prompt
-	PS1="${color_user}${USER}${color_off}@${color_yellow}${LOCAL_HOSTNAME}${color_off}:${PWDNAME}${PS1_GIT}${PS1_VENV}\n$ "
+	PS1="${color_user}${USER}${color_off}@${color_yellow}${LOCAL_HOSTNAME}${color_off}:${PWDNAME}${PS1_GIT}${PS1_VENV}\n\$ "
 
 	echo -en "\033[6n" && read -sdR CURPOS
 	[[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}↵${color_error_off}"
