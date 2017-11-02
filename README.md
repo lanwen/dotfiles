@@ -12,6 +12,7 @@ export PROJECTS_DIR=prj
 ln -s $PROJECTS_DIR/dotfiles/.bash_env .bash_env
 ln -s $PROJECTS_DIR/dotfiles/.bash_profile .bash_profile
 ln -s $PROJECTS_DIR/dotfiles/.bash_aliases .bash_aliases
+ln -s $PROJECTS_DIR/dotfiles/.gitconfig .gitconfig
 ```
 
 
