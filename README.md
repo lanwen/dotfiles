@@ -43,6 +43,10 @@ tldr
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
+yubikey-personalization 
+hopenpgp-tools 
+ykman 
+pinentry-mac
 
 ==> Casks
 font-fira-code-nerd-font
@@ -53,9 +57,17 @@ raycast
 steam
 visual-studio-code
 keybase
+gpg-suite
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
 - https://www.yubico.com/blog/github-now-supports-ssh-security-keys/ for ssh
 
+
+- `cd ~/.gnupg`
+- https://github.com/drduh/YubiKey-Guide#create-configuration
+- `curl -o gpg-agent.conf https://raw.githubusercontent.com/drduh/config/master/gpg-agent.conf`
+- https://github.com/drduh/YubiKey-Guide#using-keys
+- `curl -o gpg.conf https://raw.githubusercontent.com/drduh/config/master/gpg.conf ; chmod 600 gpg.conf`
+- check signing with `echo "test message string" | gpg --armor --clearsign > signed.txt`
 
