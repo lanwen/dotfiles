@@ -69,5 +69,6 @@ gpg-suite
 - `curl -o gpg-agent.conf https://raw.githubusercontent.com/drduh/config/master/gpg-agent.conf`
 - https://github.com/drduh/YubiKey-Guide#using-keys
 - `curl -o gpg.conf https://raw.githubusercontent.com/drduh/config/master/gpg.conf ; chmod 600 gpg.conf`
+- `gpg --card-status | grep sec#` should show sec key, needed in git later
 - check signing with `echo "test message string" | gpg --armor --clearsign > signed.txt`
 
