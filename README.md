@@ -47,6 +47,7 @@ yubikey-personalization
 hopenpgp-tools 
 ykman 
 pinentry-mac
+node
 
 ==> Casks
 font-fira-code-nerd-font
@@ -58,6 +59,7 @@ steam
 visual-studio-code
 keybase
 gpg-suite
+yandex-disk
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
