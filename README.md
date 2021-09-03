@@ -29,6 +29,7 @@ curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completio
 - slack in appstore
 - firefox directly
 - telegram directly
+- https://sdkman.io/install
 
 `brew list -1`
 
@@ -48,6 +49,10 @@ hopenpgp-tools
 ykman 
 pinentry-mac
 node
+gh
+kubectl
+kubectx
+fzf
 
 ==> Casks
 font-fira-code-nerd-font
@@ -73,4 +78,7 @@ yandex-disk
 - `curl -o gpg.conf https://raw.githubusercontent.com/drduh/config/master/gpg.conf ; chmod 600 gpg.conf`
 - `gpg --card-status | grep sec#` should show sec key, needed in git later
 - check signing with `echo "test message string" | gpg --armor --clearsign > signed.txt`
+
+- edit git config
+- 
 
