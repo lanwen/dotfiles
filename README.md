@@ -57,6 +57,12 @@ skaffold
 k9s
 awscli
 kubeseal
+exa #ls alternative
+jq
+broot
+gping
+procs
+zoxide
 
 ==> Casks
 font-fira-code-nerd-font
