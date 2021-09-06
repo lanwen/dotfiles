@@ -53,6 +53,10 @@ gh
 kubectl
 kubectx
 fzf
+skaffold
+k9s
+awscli
+kubeseal
 
 ==> Casks
 font-fira-code-nerd-font
@@ -65,6 +69,7 @@ visual-studio-code
 keybase
 gpg-suite
 yandex-disk
+google-cloud-sdk
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
