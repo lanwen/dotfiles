@@ -78,6 +78,8 @@ yandex-disk
 google-cloud-sdk
 discord
 docker
+licecap
+kap
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
