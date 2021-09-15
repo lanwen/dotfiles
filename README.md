@@ -30,6 +30,7 @@ curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completio
 - firefox directly
 - telegram directly
 - https://sdkman.io/install
+- https://www.elgato.com/en/epoccam
 
 `brew list -1`
 
