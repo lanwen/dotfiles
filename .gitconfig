@@ -1,9 +1,8 @@
 [user]
-        name = Kirill Merkushev
-        email = lanwen@yandex.ru
-        signingkey = 0x476DA66909A15625
-[core]
-        autocrlf = input
-        excludesfile = /Users/lanwen/.gitignore_global
+	name = Kirill Merkushev
+	email = lanwen@yandex.ru
+	signingkey = 0x476DA66909A15625
 [commit]
 	gpgsign = true
+[core]
+	excludesFile = ~/.gitignore
