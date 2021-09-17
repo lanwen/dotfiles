@@ -30,7 +30,11 @@ curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completio
 - firefox directly
 - telegram directly
 - https://sdkman.io/install
-- https://www.elgato.com/en/epoccam
+- https://www.elgato.com/en/epoccam (?)
+
+Appstore & Co
+- https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
+- https://developer.apple.com/download/all/?q=Additional%20Tools ("Additional Tools for Xcode 12" contains Network Link Conditioner to test unstable networks)
 
 `brew list -1`
 
