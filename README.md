@@ -100,5 +100,9 @@ kap
 - check signing with `echo "test message string" | gpg --armor --clearsign > signed.txt`
 
 - edit git config
-- 
+
+# k8s
+- https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+- `k krew install tree`
+- `k krew install access-matrix`
 
