@@ -68,6 +68,8 @@ broot
 gping
 procs
 zoxide
+coreutils
+ncdu
 
 ==> Casks
 font-fira-code-nerd-font
