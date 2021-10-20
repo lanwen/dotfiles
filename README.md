@@ -108,3 +108,9 @@ kap
 - `k krew install tree`
 - `k krew install access-matrix`
 
+### m1
+
+- `softwareupdate --install-rosetta`
+- `arch -x86_64 bash`
+- `arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+- `/usr/local/bin/brew install qmk/qmk/qmk`
