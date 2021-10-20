@@ -110,7 +110,11 @@ kap
 
 ### m1
 
-- `softwareupdate --install-rosetta`
-- `arch -x86_64 bash`
-- `arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-- `/usr/local/bin/brew install qmk/qmk/qmk`
+```
+softwareupdate --install-rosetta
+arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+export PATH=/usr/local/bin:$PATH
+brew install qmk/qmk/qmk
+brew tap homebrew/cask-drivers
+brew install --cask qmk-toolbox
+```
