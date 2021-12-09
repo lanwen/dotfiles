@@ -64,14 +64,17 @@ awscli
 kubeseal
 exa #ls alternative
 jq
-broot
 gping
 procs
 zoxide
 coreutils
 ncdu
+watch
+graphviz
+
 
 ==> Casks
+postman
 font-fira-code-nerd-font
 iterm2
 jetbrains-toolbox
