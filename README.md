@@ -65,6 +65,7 @@ awscli
 kubeseal
 exa #ls alternative
 jq
+yq
 gping
 procs
 zoxide
