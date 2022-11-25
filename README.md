@@ -73,6 +73,8 @@ coreutils
 ncdu
 watch
 graphviz
+grpccurl
+httping
 
 
 ==> Casks
@@ -93,6 +95,7 @@ docker
 licecap
 kap
 stats
+vlc
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
