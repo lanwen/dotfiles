@@ -1,6 +1,6 @@
 [user]
 	name = Kirill Merkushev
-	email = lanwen@yandex.ru
+	email = lanwen@yandex.com
 	signingkey = 0x476DA66909A15625
 [commit]
 	gpgsign = true
