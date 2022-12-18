@@ -36,6 +36,7 @@ Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
 - https://developer.apple.com/download/all/?q=Additional%20Tools ("Additional Tools for Xcode 12" contains Network Link Conditioner to test unstable networks)
 - https://apps.apple.com/de/app/tailscale/id1475387142?l=en&mt=12
+- https://wooshy.app/
 
 `brew list -1`
 
