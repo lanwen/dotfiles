@@ -78,6 +78,7 @@ watch
 graphviz
 grpccurl
 httping
+secretive
 
 
 ==> Casks
