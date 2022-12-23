@@ -1,8 +1,12 @@
 [user]
 	name = Kirill Merkushev
 	email = lanwen@yandex.com
-	signingkey = 0x476DA66909A15625
+	signingkey = 54BF71672FB6C2A3
 [commit]
 	gpgsign = true
 [core]
 	excludesFile = ~/.gitignore
+	autocrlf = input
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
