@@ -25,12 +25,14 @@ curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completio
 
 ## New setup
 
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 - brew
-- slack in appstore
-- firefox directly
-- telegram directly
 - https://sdkman.io/install
-- https://www.elgato.com/en/epoccam (?)
+
+- https://www.elgato.com/en/epoccam (?) via brew
 
 Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
@@ -97,6 +99,10 @@ licecap
 kap
 stats
 vlc
+firefox
+telegram
+epoccam
+slack
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
