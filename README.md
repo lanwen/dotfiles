@@ -108,7 +108,7 @@ slack
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
 - https://www.yubico.com/blog/github-now-supports-ssh-security-keys/ for ssh
 
-
+- https://github.com/pstadler/keybase-gpg-github
 - `cd ~/.gnupg`
 - https://github.com/drduh/YubiKey-Guide#create-configuration
 - `curl -o gpg-agent.conf https://raw.githubusercontent.com/drduh/config/master/gpg-agent.conf`
