@@ -1,28 +1,6 @@
 # home
 Some useful things for laptop
 
-
-```
-brew install bash-completion
-```
-
-
-```
-export PROJECTS_DIR=prj
-ln -s $PROJECTS_DIR/dotfiles/.bash_env .bash_env
-ln -s $PROJECTS_DIR/dotfiles/.bash_profile .bash_profile
-ln -s $PROJECTS_DIR/dotfiles/.bash_aliases .bash_aliases
-ln -s $PROJECTS_DIR/dotfiles/.gitconfig .gitconfig
-```
-
-
-## For docker
-
-```
-curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker > /usr/local/etc/bash_completion.d/docker
-```
-
-
 ## New setup
 
 ```
@@ -32,8 +10,6 @@ curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completio
 - brew
 - https://sdkman.io/install
 
-- https://www.elgato.com/en/epoccam (?) via brew
-
 Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
 - https://developer.apple.com/download/all/?q=Additional%20Tools ("Additional Tools for Xcode 12" contains Network Link Conditioner to test unstable networks)
@@ -42,20 +18,24 @@ Appstore & Co
 
 `brew list -1`
 
+
+`brew tap jorgelbg/tap`
+
 ```
 ==> Formulae
 git
 go
 gpg
 openssh
-powerlevel10k
-tldr
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
+# input prompt for zsh
+powerlevel10k
+tldr
 yubikey-personalization 
 hopenpgp-tools 
-ykman 
+ykman
 pinentry-mac
 node
 gh
@@ -66,19 +46,32 @@ skaffold
 k9s
 awscli
 kubeseal
-exa #ls alternative
+#ls alternative
+exa 
 jq
+# like jq, but for yaml
 yq
+# nice graph when pinging
 gping
+# replacement for ps written in Rust
 procs
+# for quick navigation
 zoxide
+# for hashing commands
 coreutils
 ncdu
 watch
 graphviz
+# to test grpc
 grpccurl
+# ping via http to understand how long it takes to connect
 httping
+# ssh keys with touchID
 secretive
+# https://github.com/jorgelbg/pinentry-touchid - for gpg passhphrase with touchID
+pinentry-touchid
+# emulator
+qemu
 
 
 ==> Casks
@@ -98,6 +91,7 @@ discord
 docker
 licecap
 kap
+# nice stats in the tray area
 stats
 vlc
 firefox
@@ -112,6 +106,15 @@ slack
 ### GPG
 - https://github.com/pstadler/keybase-gpg-github
 - https://github.com/jorgelbg/pinentry-touchid
+
+### Aliases
+```
+cd=z
+k=kubectl
+ll='exa -la'
+ls=exa
+ping=gping
+```
 
 ### Yubikey
 - `cd ~/.gnupg`
