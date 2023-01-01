@@ -72,6 +72,8 @@ secretive
 pinentry-touchid
 # emulator
 qemu
+# for `chdman` https://retropie.org.uk/docs/CHD-files/#creating-chds-from-cd-roms
+rom-tools
 
 
 ==> Casks
