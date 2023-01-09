@@ -74,6 +74,8 @@ pinentry-touchid
 qemu
 # for `chdman` https://retropie.org.uk/docs/CHD-files/#creating-chds-from-cd-roms
 rom-tools
+# https://github.com/gokcehan/lf - super nice file nav
+lf
 
 
 ==> Casks
