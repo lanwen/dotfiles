@@ -116,7 +116,8 @@ discord
 after: 
 
 ```
-echo 'eval "$(zoxide init zsh)"' >> .zshrc
+eval "$(zoxide init zsh)"
+$(brew --prefix)/opt/fzf/install
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
