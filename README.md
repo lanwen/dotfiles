@@ -78,31 +78,34 @@ rom-tools
 lf
 
 
+brew tap homebrew/cask-fonts
+
 ==> Casks
-postman
 font-fira-code-nerd-font
 iterm2
 jetbrains-toolbox
 keepingyouawake
 raycast
-steam
 visual-studio-code
 keybase
 gpg-suite
 yandex-disk
 google-cloud-sdk
-discord
 docker
 licecap
-kap
 # nice stats in the tray area
 stats
 vlc
 firefox
 telegram
-epoccam
 slack
 microsoft-remote-desktop
+
+# optional
+kap
+postman
+steam
+discord
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
