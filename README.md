@@ -113,6 +113,12 @@ steam
 discord
 ```
 
+after: 
+
+```
+echo 'eval "$(zoxide init zsh)"' >> .zshrc
+```
+
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
 - https://www.yubico.com/blog/github-now-supports-ssh-security-keys/ for ssh
 
