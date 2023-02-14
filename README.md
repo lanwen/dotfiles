@@ -19,8 +19,6 @@ Appstore & Co
 `brew list -1`
 
 
-`brew tap jorgelbg/tap`
-
 ```
 ==> Formulae
 git
@@ -31,7 +29,7 @@ zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
 # input prompt for zsh
-powerlevel10k
+
 tldr
 yubikey-personalization 
 hopenpgp-tools 
@@ -63,19 +61,26 @@ ncdu
 watch
 graphviz
 # to test grpc
-grpccurl
+grpcurl
 # ping via http to understand how long it takes to connect
 httping
 # ssh keys with touchID
 secretive
-# https://github.com/jorgelbg/pinentry-touchid - for gpg passhphrase with touchID
-pinentry-touchid
 # emulator
 qemu
 # for `chdman` https://retropie.org.uk/docs/CHD-files/#creating-chds-from-cd-roms
 rom-tools
 # https://github.com/gokcehan/lf - super nice file nav
 lf
+
+brew tap jorgelbg/tap
+# https://github.com/jorgelbg/pinentry-touchid - for gpg passhphrase with touchID
+pinentry-touchid
+
+romkatv/powerlevel10k/powerlevel10k
+# then
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+
 
 
 brew tap homebrew/cask-fonts
