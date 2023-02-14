@@ -30,3 +30,5 @@ export SSH_AUTH_SOCK=/Users/lanwen/Library/Containers/com.maxgoedjen.Secretive.S
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export PATH=$PATH:$GOPATH/bin
