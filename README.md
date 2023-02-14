@@ -122,6 +122,11 @@ ping=gping
 ```
 
 ### Yubikey
+
+#### Disable popup
+https://support.yubico.com/hc/en-us/articles/360016649059-Using-Your-YubiKey-as-a-Smart-Card-in-macOS
+`sc_auth pairing_ui -s disable`
+
 - `cd ~/.gnupg`
 - https://github.com/drduh/YubiKey-Guide#create-configuration
 - `curl -o gpg-agent.conf https://raw.githubusercontent.com/drduh/config/master/gpg-agent.conf`
