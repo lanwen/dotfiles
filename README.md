@@ -109,6 +109,8 @@ microsoft-remote-desktop
 # optional
 kap
 postman
+# same as postman, but native, faster, less confusing
+rapidapi
 steam
 discord
 ```
