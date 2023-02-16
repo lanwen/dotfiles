@@ -118,7 +118,9 @@ discord
 after: 
 
 ```
-eval "$(zoxide init zsh)"
+git config --global gpg.program "$(which gpg)"
+echo "no-tty" >> ~/.gnupg/gpg.conf
+echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc
 $(brew --prefix)/opt/fzf/install
 ```
 
@@ -130,12 +132,11 @@ $(brew --prefix)/opt/fzf/install
 - https://github.com/pstadler/keybase-gpg-github
 - https://github.com/jorgelbg/pinentry-touchid
 
-### Aliases
+### Aliases (add to `~/.zshrc`)
 ```
 cd=z
 k=kubectl
 ll='exa -la'
-ls=exa
 ping=gping
 ```
 
