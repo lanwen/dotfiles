@@ -171,3 +171,6 @@ brew install qmk/qmk/qmk
 brew tap homebrew/cask-drivers
 brew install --cask qmk-toolbox
 ```
+
+### Fun soft
+- https://objective-see.org/products/knockknock.html
