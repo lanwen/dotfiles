@@ -177,3 +177,7 @@ brew install --cask qmk-toolbox
 
 ### Fun soft
 - https://objective-see.org/products/knockknock.html
+
+### Additionally
+
+- https://github.com/ben-manes/gradle-versions-plugin
