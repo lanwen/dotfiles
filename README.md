@@ -37,13 +37,16 @@ ykman
 pinentry-mac
 node
 gh
+fzf
+
+#k8s related
 kubectl
 kubectx
-fzf
-skaffold
+eksctl
 k9s
 awscli
 kubeseal
+
 #ls alternative
 exa 
 jq
