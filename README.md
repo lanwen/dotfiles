@@ -38,6 +38,7 @@ pinentry-mac
 node
 gh
 fzf
+zellij
 
 #k8s related
 kubectl
