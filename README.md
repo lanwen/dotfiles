@@ -48,6 +48,7 @@ eksctl
 k9s
 awscli
 kubeseal
+kubie # better kubectx
 
 #ls alternative
 exa 
