@@ -39,6 +39,7 @@ node
 gh
 fzf
 zellij
+cyberduck #scp
 
 #k8s related
 kubectl
