@@ -129,6 +129,8 @@ http-toolkit
 after: 
 
 ```
+git config --global user.email 1964214+lanwen@users.noreply.github.com
+
 git config --global gpg.program "$(which gpg)"
 echo "no-tty" >> ~/.gnupg/gpg.conf
 echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc
