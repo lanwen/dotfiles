@@ -10,3 +10,8 @@
 
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+
+[init]
+	defaultBranch = main
+[gpg]
+	program = /opt/homebrew/bin/gpg
