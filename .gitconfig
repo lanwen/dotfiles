@@ -1,7 +1,7 @@
 [user]
 	name = Kirill Merkushev
-	email = lanwen@yandex.com
-	signingkey = 54BF71672FB6C2A3
+	email = 1964214+lanwen@users.noreply.github.com
+	signingkey = 5A7B01DB4DE20BEF
 [commit]
 	gpgsign = true
 [core]
