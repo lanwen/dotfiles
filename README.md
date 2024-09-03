@@ -85,6 +85,7 @@ brew tap jorgelbg/tap
 # https://github.com/jorgelbg/pinentry-touchid - for gpg passhphrase with touchID
 pinentry-touchid
 
+# migrate to https://github.com/starship/starship?
 romkatv/powerlevel10k/powerlevel10k
 # then
 echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
