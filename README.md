@@ -49,6 +49,7 @@ k9s
 awscli
 kubeseal
 kubie # better kubectx
+kubecolor # https://kubecolor.github.io/
 
 #ls alternative
 exa 
