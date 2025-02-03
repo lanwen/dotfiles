@@ -42,6 +42,8 @@ gh
 fzf
 zellij
 cyberduck #scp
+#https://www.josean.com/posts/how-to-use-yazi-file-manager
+yazi
 
 #k8s related
 kubectl
@@ -144,6 +146,7 @@ $(brew --prefix)/opt/fzf/install
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
 - https://www.yubico.com/blog/github-now-supports-ssh-security-keys/ for ssh
 - https://github.com/maxgoedjen/secretive
+- https://www.josean.com/posts/how-to-use-yazi-file-manager
 
 ### GPG
 - https://github.com/pstadler/keybase-gpg-github
