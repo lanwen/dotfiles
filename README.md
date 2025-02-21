@@ -95,6 +95,8 @@ romkatv/powerlevel10k/powerlevel10k
 # then
 echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 
+# https://departuremono.com/
+font-departure-mono
 
 
 brew tap homebrew/cask-fonts
