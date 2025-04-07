@@ -45,6 +45,9 @@ cyberduck #scp
 #https://www.josean.com/posts/how-to-use-yazi-file-manager
 yazi
 
+pstree
+psgrep
+
 #k8s related
 kubectl
 kubectx
