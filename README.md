@@ -101,6 +101,8 @@ echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zs
 # https://departuremono.com/
 font-departure-mono
 
+# json/logfmt logs formatter https://github.com/pamburus/hl
+hl
 
 brew tap homebrew/cask-fonts
 
