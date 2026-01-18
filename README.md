@@ -126,6 +126,8 @@ firefox
 telegram
 slack
 microsoft-remote-desktop
+# https://github.com/KartikLabhshetwar/better-shot screenshots
+bettershot
 
 # optional
 kap
