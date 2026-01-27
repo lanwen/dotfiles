@@ -50,7 +50,6 @@ psgrep
 
 #k8s related
 kubectl
-kubectx
 eksctl
 k9s
 awscli
@@ -58,6 +57,8 @@ kubeseal
 kubie # better kubectx
 kubecolor # https://kubecolor.github.io/
 
+# faster nvm
+fnm 
 #ls alternative
 exa 
 jq
