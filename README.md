@@ -108,6 +108,8 @@ hl
 brew tap homebrew/cask-fonts
 
 ==> Casks
+
+jordond/tap/jolt # battery TUI
 font-fira-code-nerd-font
 iterm2
 jetbrains-toolbox
