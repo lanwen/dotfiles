@@ -89,6 +89,8 @@ rom-tools
 lf
 # https://github.com/slimtoolkit/slim - make docker images slim
 docker-slim
+# https://github.com/emanuele-em/proxelar - mitm proxy
+proxelar
 
 brew tap jorgelbg/tap
 # https://github.com/jorgelbg/pinentry-touchid - for gpg passhphrase with touchID
