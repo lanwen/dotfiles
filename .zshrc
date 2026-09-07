@@ -7,7 +7,10 @@ source <(fzf --zsh)
 alias ps='procs'
 alias vi='nvim'
 alias ll='ls -lah'
+alias tf=terraform
+alias k=kubectl
 
+export BAT_THEME=ansi
 export EDITOR='nvim'
 export VISUAL='nvim'
 
@@ -23,6 +26,21 @@ export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+# safe-defaults: package-manager wrappers
+export PATH="/Users/lanwen/.local/bin:$PATH"
+
+oci-auth() {
+    export OCI_CLI_KEY_CONTENT="$(op read "op://Private/zz2fpyuhmorsssme5o4peepdoi/private key")"
+}
+
+oci() {
+    if [[ -z "${OCI_CLI_KEY_CONTENT:-}" ]]; then
+      oci-auth
+    fi
+
+    command oci "$@"
+}
 
 eval "$(zoxide init --cmd cd zsh)"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
