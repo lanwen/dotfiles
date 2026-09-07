@@ -13,6 +13,7 @@ alias k=kubectl
 export BAT_THEME=ansi
 export EDITOR='nvim'
 export VISUAL='nvim'
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # Launch herdr automatically in Ghostty's quick terminal.
 if [[ -o interactive && "$GHOSTTY_QUICK_TERMINAL" == "1"
