@@ -80,6 +80,7 @@ zoxide # for quick navigation
 coreutils # for hashing commands
 ncdu
 watch
+mosh
 
 # migrate to https://github.com/starship/starship?
 
