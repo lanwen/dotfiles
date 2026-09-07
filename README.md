@@ -28,6 +28,19 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 Open a new terminal after updating your shell configuration.
 
+### Ghostty
+
+The Ghostty configuration is tracked in `.config/ghostty/config.ghostty`.
+From this repository's root, restore it on macOS with:
+
+```sh
+brew install --cask ghostty font-fira-code-nerd-font
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+cp .config/ghostty/config.ghostty "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+```
+
+Reload Ghostty's configuration or restart it to apply changes.
+
 Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
 - https://developer.apple.com/download/all/?q=Additional%20Tools ("Additional Tools for Xcode 12" contains Network Link Conditioner to test unstable networks)
