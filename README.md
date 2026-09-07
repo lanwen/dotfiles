@@ -43,6 +43,11 @@ tailscale
 tldr
 gh
 fzf
+ripgrep # rg: fast text search
+bat # file viewer with syntax highlighting
+eza # ls alternative; ll and lt aliases
+dust # du alternative
+duf # df alternative
 superfile
 pstree
 psgrep

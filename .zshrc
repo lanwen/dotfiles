@@ -6,7 +6,10 @@ source <(fzf --zsh)
 
 alias ps='procs'
 alias vi='nvim'
-alias ll='ls -lah'
+alias ll='eza -lah --git'
+alias lt='eza --tree --level=2'
+alias du='dust'
+alias df='duf'
 alias tf=terraform
 alias k=kubectl
 
