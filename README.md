@@ -7,19 +7,14 @@ Some useful things for laptop
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-- brew
 - https://sdkman.io/install
 
 Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
 - https://developer.apple.com/download/all/?q=Additional%20Tools ("Additional Tools for Xcode 12" contains Network Link Conditioner to test unstable networks)
-- https://wooshy.app/
-- https://www.xnview.com/en/
-- https://blyt.net/phxslides/
+
 
 `brew list -1`
-
-
 
 
 ```
@@ -40,18 +35,12 @@ k9s
 awscli
 kubie # better kubectx
 kubecolor # https://kubecolor.github.io/
-
-# faster nvm
-fnm 
+fnm # faster nvm
 jq
 yq
-
-# replacement for ps written in Rust
-procs
-# for quick navigation
-zoxide
-# for hashing commands
-coreutils
+procs # replacement for ps written in Rust
+zoxide # for quick navigation
+coreutils # for hashing commands
 ncdu
 watch
 
@@ -59,8 +48,7 @@ watch
 
 # https://departuremono.com/
 font-departure-mono
-# json/logfmt logs formatter https://github.com/pamburus/hl
-hl
+hl # json/logfmt logs formatter https://github.com/pamburus/hl
 font-fira-code-nerd-font
 jetbrains-toolbox
 keepingyouawake
@@ -132,14 +120,14 @@ https://support.yubico.com/hc/en-us/articles/360016649059-Using-Your-YubiKey-as-
 - `gpg --card-status | grep sec#` should show sec key, needed in git later
 - check signing with `echo "test message string" | gpg --armor --clearsign > signed.txt`
 
-- edit git config
 
 # k8s
 - https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 - `k krew install tree`
 - `k krew install access-matrix`
 
-### m1
+
+### kb
 
 ```
 softwareupdate --install-rosetta
@@ -151,15 +139,15 @@ brew install --cask qmk-toolbox
 
 ### Fun soft
 - https://objective-see.org/products/knockknock.html
+- https://wooshy.app/
 
-### Additionally
+- https://www.xnview.com/en/
+- https://blyt.net/phxslides/
 
-- https://github.com/ben-manes/gradle-versions-plugin
 
 
 
 ### Old
-
 
 ```
 git

@@ -1,38 +1,28 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# Activate mise-managed development tools.
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+#fzf
+source <(fzf --zsh)
+
+alias ps='procs'
+alias vi='nvim'
+alias ll='ls -lah'
+
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+# Launch herdr automatically in Ghostty's quick terminal.
+if [[ -o interactive && "$GHOSTTY_QUICK_TERMINAL" == "1"
+      && -z "$HERDR_QUICK_TERMINAL_STARTED"
+      && -z "$HERDR_ENV" && -z "$HERDR_PANE_ID" ]]; then
+  export HERDR_QUICK_TERMINAL_STARTED=1
+  env -u GHOSTTY_QUICK_TERMINAL /opt/homebrew/bin/herdr
 fi
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /Users/lanwen/.config/broot/launcher/bash/br
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-random-string()
-{
-    cat /dev/urandom | env LC_CTYPE=C env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n ${1:-1}
-}
-
-# Secretive Config
-export SSH_AUTH_SOCK=/Users/lanwen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+eval "$(zoxide init --cmd cd zsh)"
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
