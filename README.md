@@ -81,6 +81,7 @@ coreutils # for hashing commands
 ncdu
 watch
 mosh
+bruno
 
 # migrate to https://github.com/starship/starship?
 
