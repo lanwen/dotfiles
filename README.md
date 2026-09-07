@@ -218,3 +218,13 @@ qemu
 # https://github.com/gokcehan/lf - super nice file nav
 lf
 ```
+
+
+## AI
+
+```
+curl -fsSL https://codedb.codegraff.com/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash -s -- --ui
+```
+
