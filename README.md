@@ -7,7 +7,26 @@ Some useful things for laptop
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-- https://sdkman.io/install
+### mise
+
+Global tool versions are tracked in `.config/mise/config.toml`.
+From this repository's root, restore them with:
+
+```sh
+brew install mise
+mkdir -p ~/.config/mise
+cp .config/mise/config.toml ~/.config/mise/config.toml
+mise install --cd ~
+```
+
+The tracked `.zshrc` includes mise activation. Add the following to your
+`~/.zshrc` if you are not using it:
+
+```sh
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+```
+
+Open a new terminal after updating your shell configuration.
 
 Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
