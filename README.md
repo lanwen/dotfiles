@@ -13,7 +13,6 @@ Some useful things for laptop
 Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
 - https://developer.apple.com/download/all/?q=Additional%20Tools ("Additional Tools for Xcode 12" contains Network Link Conditioner to test unstable networks)
-- https://apps.apple.com/de/app/tailscale/id1475387142?l=en&mt=12
 - https://wooshy.app/
 - https://www.xnview.com/en/
 - https://blyt.net/phxslides/
@@ -21,30 +20,16 @@ Appstore & Co
 `brew list -1`
 
 
+
+
 ```
-==> Formulae
-git
-go
-gpg
-openssh
-zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
-# input prompt for zsh
-
+tailscale
 tldr
-yubikey-personalization 
-hopenpgp-tools 
-ykman
-pinentry-mac
-node
 gh
 fzf
-zellij
-cyberduck #scp
-#https://www.josean.com/posts/how-to-use-yazi-file-manager
-yazi
-
+superfile
 pstree
 psgrep
 
@@ -53,19 +38,14 @@ kubectl
 eksctl
 k9s
 awscli
-kubeseal
 kubie # better kubectx
 kubecolor # https://kubecolor.github.io/
 
 # faster nvm
 fnm 
-#ls alternative
-exa 
 jq
-# like jq, but for yaml
 yq
-# nice graph when pinging
-gping
+
 # replacement for ps written in Rust
 procs
 # for quick navigation
@@ -74,54 +54,17 @@ zoxide
 coreutils
 ncdu
 watch
-graphviz
-# to test grpc
-grpcurl
-# ping via http to understand how long it takes to connect
-httping
-# ssh keys with touchID
-secretive
-# emulator
-qemu
-# for `chdman` https://retropie.org.uk/docs/CHD-files/#creating-chds-from-cd-roms
-rom-tools
-# https://github.com/gokcehan/lf - super nice file nav
-lf
-# https://github.com/slimtoolkit/slim - make docker images slim
-docker-slim
-# https://github.com/emanuele-em/proxelar - mitm proxy
-proxelar
-
-brew tap jorgelbg/tap
-# https://github.com/jorgelbg/pinentry-touchid - for gpg passhphrase with touchID
-pinentry-touchid
 
 # migrate to https://github.com/starship/starship?
-romkatv/powerlevel10k/powerlevel10k
-# then
-echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 
 # https://departuremono.com/
 font-departure-mono
-
 # json/logfmt logs formatter https://github.com/pamburus/hl
 hl
-
-brew tap homebrew/cask-fonts
-
-==> Casks
-
-jordond/tap/jolt # battery TUI
 font-fira-code-nerd-font
-iterm2
 jetbrains-toolbox
 keepingyouawake
 raycast
-visual-studio-code
-keybase
-gpg-suite
-yandex-disk
-google-cloud-sdk
 docker
 licecap
 # nice stats in the tray area
@@ -133,17 +76,23 @@ slack
 microsoft-remote-desktop
 # https://github.com/KartikLabhshetwar/better-shot screenshots
 bettershot
+mitmproxy
+```
 
-# optional
+## Special
+```
+# for `chdman` https://retropie.org.uk/docs/CHD-files/#creating-chds-from-cd-roms
+rom-tools
+
 kap
-postman
-# same as postman, but native, faster, less confusing
-rapidapi
 steam
 discord
 
-# https://httptoolkit.com
-http-toolkit
+jordond/tap/jolt # battery TUI
+# https://github.com/slimtoolkit/slim - make docker images slim
+docker-slim
+# https://github.com/emanuele-em/proxelar - mitm proxy
+proxelar
 ```
 
 after: 
@@ -151,10 +100,6 @@ after:
 ```
 git config --global user.email 1964214+lanwen@users.noreply.github.com
 
-git config --global gpg.program "$(which gpg)"
-echo "no-tty" >> ~/.gnupg/gpg.conf
-echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc
-$(brew --prefix)/opt/fzf/install
 ```
 
 - https://github.com/chrstphrknwtn/epoch-flip-clock-screensaver then `xattr -c Epoch\ Flip\ Clock.saver` also hot corner and enable pwd requirement immediately in privacy settings
@@ -166,13 +111,12 @@ $(brew --prefix)/opt/fzf/install
 - https://github.com/pstadler/keybase-gpg-github
 - https://github.com/jorgelbg/pinentry-touchid
 
-### Aliases (add to `~/.zshrc`)
 ```
-cd=z
-k=kubectl
-ll='exa -la'
-ping=gping
+git config --global gpg.program "$(which gpg)"
+echo "no-tty" >> ~/.gnupg/gpg.conf
 ```
+
+
 
 ### Yubikey
 
@@ -199,7 +143,6 @@ https://support.yubico.com/hc/en-us/articles/360016649059-Using-Your-YubiKey-as-
 
 ```
 softwareupdate --install-rosetta
-arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 export PATH=/usr/local/bin:$PATH
 brew install qmk/qmk/qmk
 brew tap homebrew/cask-drivers
@@ -212,3 +155,39 @@ brew install --cask qmk-toolbox
 ### Additionally
 
 - https://github.com/ben-manes/gradle-versions-plugin
+
+
+
+### Old
+
+
+```
+git
+go
+gpg
+openssh
+zsh
+yubikey-personalization 
+hopenpgp-tools 
+ykman
+pinentry-mac
+node
+zellij
+cyberduck #scp
+#https://www.josean.com/posts/how-to-use-yazi-file-manager
+yazi
+kubeseal
+keybase
+gpg-suite
+graphviz
+grpcurl
+# ping via http to understand how long it takes to connect
+httping
+brew tap jorgelbg/tap
+# https://github.com/jorgelbg/pinentry-touchid - for gpg passhphrase with touchID
+pinentry-touchid
+# emulator
+qemu
+# https://github.com/gokcehan/lf - super nice file nav
+lf
+```
