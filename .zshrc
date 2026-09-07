@@ -22,11 +22,6 @@ if [[ -o interactive && "$GHOSTTY_QUICK_TERMINAL" == "1"
   env -u GHOSTTY_QUICK_TERMINAL /opt/homebrew/bin/herdr
 fi
 
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
 # safe-defaults: package-manager wrappers
 export PATH="/Users/lanwen/.local/bin:$PATH"
 
