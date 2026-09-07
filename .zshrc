@@ -28,6 +28,7 @@ fi
 
 # safe-defaults: package-manager wrappers
 export PATH="/Users/lanwen/.local/bin:$PATH"
+export PATH="/Users/lanwen/bin:$PATH"
 
 oci-auth() {
     export OCI_CLI_KEY_CONTENT="$(op read "op://Private/zz2fpyuhmorsssme5o4peepdoi/private key")"
