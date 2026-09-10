@@ -1,5 +1,0 @@
-keybind = global:cmd+shift+c=toggle_quick_terminal
-quick-terminal-position = top
-quick-terminal-screen = mouse
-font-family = FiraCode Nerd Font Mono
-copy-on-select = clipboard
