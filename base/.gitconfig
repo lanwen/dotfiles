@@ -1,0 +1,10 @@
+[user]
+	email = 1964214+lanwen@users.noreply.github.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB4lC575uOmuztQybcM5zQ5ml0rR/xUpedgoqZmzbIOS
+	name = Kirill Merkushev
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true

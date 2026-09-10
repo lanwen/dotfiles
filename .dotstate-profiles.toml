@@ -4,6 +4,6 @@ version = 2
 synced_files = []
 
 [[profiles]]
-name = "etc"
-synced_files = []
+name = "base"
+synced_files = [".gitconfig"]
 packages = []
