@@ -5,5 +5,9 @@ synced_files = []
 
 [[profiles]]
 name = "base"
-synced_files = [".gitconfig"]
+synced_files = [
+    ".gitconfig",
+    ".gitignore",
+    ".zshrc",
+]
 packages = []
