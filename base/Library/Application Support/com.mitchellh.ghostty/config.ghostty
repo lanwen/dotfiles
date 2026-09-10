@@ -4,3 +4,4 @@ quick-terminal-screen = mouse
 font-family = FiraCode Nerd Font Mono
 copy-on-select = clipboard
 background-opacity = 0.9
+auto-update-channel = tip
