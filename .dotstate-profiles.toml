@@ -10,4 +10,219 @@ synced_files = [
     ".gitignore",
     ".zshrc",
 ]
-packages = []
+
+[[profiles.packages]]
+name = "eza"
+manager = "brew"
+package_name = "eza"
+binary_name = "eza"
+
+[[profiles.packages]]
+name = "bat"
+manager = "brew"
+package_name = "bat"
+binary_name = "bat"
+
+[[profiles.packages]]
+name = "kubie"
+manager = "brew"
+package_name = "kubie"
+binary_name = "kubie"
+
+[[profiles.packages]]
+name = "tailscale"
+manager = "brew"
+package_name = "tailscale"
+binary_name = "tailscale"
+
+[[profiles.packages]]
+name = "bat"
+manager = "brew"
+package_name = "bat"
+binary_name = "bat"
+
+[[profiles.packages]]
+name = "zsh-autosuggestions"
+manager = "brew"
+package_name = "zsh-autosuggestions"
+binary_name = "zsh-autosuggestions"
+
+[[profiles.packages]]
+name = "pstree"
+manager = "brew"
+package_name = "pstree"
+binary_name = "pstree"
+
+[[profiles.packages]]
+name = "dust"
+manager = "brew"
+package_name = "dust"
+binary_name = "dust"
+
+[[profiles.packages]]
+name = "gh"
+manager = "brew"
+package_name = "gh"
+binary_name = "gh"
+
+[[profiles.packages]]
+name = "ncdu"
+manager = "brew"
+package_name = "ncdu"
+binary_name = "ncdu"
+
+[[profiles.packages]]
+name = "kubernetes-cli"
+manager = "brew"
+package_name = "kubernetes-cli"
+binary_name = "kubernetes-cli"
+
+[[profiles.packages]]
+name = "zoxide"
+manager = "brew"
+package_name = "zoxide"
+binary_name = "zoxide"
+
+[[profiles.packages]]
+name = "coreutils"
+manager = "brew"
+package_name = "coreutils"
+binary_name = "coreutils"
+
+[[profiles.packages]]
+name = "psgrep"
+manager = "brew"
+package_name = "psgrep"
+binary_name = "psgrep"
+
+[[profiles.packages]]
+name = "serkanyersen/dotstate/dotstate"
+manager = "brew"
+package_name = "serkanyersen/dotstate/dotstate"
+binary_name = "serkanyersen/dotstate/dotstate"
+
+[[profiles.packages]]
+name = "jq"
+manager = "brew"
+package_name = "jq"
+binary_name = "jq"
+
+[[profiles.packages]]
+name = "kubecolor"
+manager = "brew"
+package_name = "kubecolor"
+binary_name = "kubecolor"
+
+[[profiles.packages]]
+name = "mise"
+manager = "brew"
+package_name = "mise"
+binary_name = "mise"
+
+[[profiles.packages]]
+name = "herdr"
+manager = "brew"
+package_name = "herdr"
+binary_name = "herdr"
+
+[[profiles.packages]]
+name = "yq"
+manager = "brew"
+package_name = "yq"
+binary_name = "yq"
+
+[[profiles.packages]]
+name = "duf"
+manager = "brew"
+package_name = "duf"
+binary_name = "duf"
+
+[[profiles.packages]]
+name = "hl"
+manager = "brew"
+package_name = "hl"
+binary_name = "hl"
+
+[[profiles.packages]]
+name = "k9s"
+manager = "brew"
+package_name = "k9s"
+binary_name = "k9s"
+
+[[profiles.packages]]
+name = "awscli"
+manager = "brew"
+package_name = "awscli"
+binary_name = "awscli"
+
+[[profiles.packages]]
+name = "ffmpeg"
+manager = "brew"
+package_name = "ffmpeg"
+binary_name = "ffmpeg"
+
+[[profiles.packages]]
+name = "neovim"
+manager = "brew"
+package_name = "neovim"
+binary_name = "neovim"
+
+[[profiles.packages]]
+name = "zsh-syntax-highlighting"
+manager = "brew"
+package_name = "zsh-syntax-highlighting"
+binary_name = "zsh-syntax-highlighting"
+
+[[profiles.packages]]
+name = "eksctl"
+manager = "brew"
+package_name = "eksctl"
+binary_name = "eksctl"
+
+[[profiles.packages]]
+name = "fzf"
+manager = "brew"
+package_name = "fzf"
+binary_name = "fzf"
+
+[[profiles.packages]]
+name = "go-task"
+manager = "brew"
+package_name = "go-task"
+binary_name = "go-task"
+
+[[profiles.packages]]
+name = "mosh"
+manager = "brew"
+package_name = "mosh"
+binary_name = "mosh"
+
+[[profiles.packages]]
+name = "procs"
+manager = "brew"
+package_name = "procs"
+binary_name = "procs"
+
+[[profiles.packages]]
+name = "tldr"
+manager = "brew"
+package_name = "tldr"
+binary_name = "tldr"
+
+[[profiles.packages]]
+name = "watch"
+manager = "brew"
+package_name = "watch"
+binary_name = "watch"
+
+[[profiles.packages]]
+name = "ripgrep"
+manager = "brew"
+package_name = "ripgrep"
+binary_name = "ripgrep"
+
+[[profiles.packages]]
+name = "superfile"
+manager = "brew"
+package_name = "superfile"
+binary_name = "superfile"
