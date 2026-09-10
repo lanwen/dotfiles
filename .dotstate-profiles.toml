@@ -6,9 +6,11 @@ synced_files = []
 [[profiles]]
 name = "base"
 synced_files = [
+    ".config/mise/config.toml",
     ".gitconfig",
     ".gitignore",
     ".zshrc",
+    "Library/Application Support/com.mitchellh.ghostty/config.ghostty",
 ]
 
 [[profiles.packages]]
