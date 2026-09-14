@@ -5,3 +5,5 @@ export PATH="$PATH:/Users/lanwen/.docker/bin"
 # Added by Toolbox App
 export PATH="$PATH:/Users/lanwen/Library/Application Support/JetBrains/Toolbox/scripts"
 
+export PATH="/Users/lanwen/.local/bin:$PATH"
+export PATH="/Users/lanwen/bin:$PATH"

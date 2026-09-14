@@ -18,10 +18,6 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-# safe-defaults: package-manager wrappers
-export PATH="/Users/lanwen/.local/bin:$PATH"
-export PATH="/Users/lanwen/bin:$PATH"
-
 oci-auth() {
     export OCI_CLI_KEY_CONTENT="$(op read "op://Private/zz2fpyuhmorsssme5o4peepdoi/private key")"
 }
