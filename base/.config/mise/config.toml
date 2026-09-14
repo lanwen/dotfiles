@@ -2,3 +2,4 @@
 go = "latest"
 java = "temurin-25"
 node = "lts"
+terraform = "latest"

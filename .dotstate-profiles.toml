@@ -8,6 +8,7 @@ name = "base"
 synced_files = [
     ".config/mise/config.toml",
     ".gitconfig",
+    ".zprofile",
     ".zshrc",
     "Library/Application Support/com.mitchellh.ghostty/config.ghostty",
 ]
@@ -227,3 +228,21 @@ name = "superfile"
 manager = "brew"
 package_name = "superfile"
 binary_name = "superfile"
+
+[[profiles.packages]]
+name = "btop"
+manager = "brew"
+package_name = "btop"
+binary_name = "btop"
+
+[[profiles.packages]]
+name = "carapace"
+manager = "brew"
+package_name = "carapace"
+binary_name = "carapace"
+
+[[profiles.packages]]
+name = "starship"
+manager = "brew"
+package_name = "starship"
+binary_name = "starship"

@@ -1,7 +1,10 @@
-keybind = global:cmd+shift+c=toggle_quick_terminal
+keybind = global:cmd+alt+shift+c=toggle_quick_terminal
+initial-command = direct:/opt/homebrew/bin/herdr
 quick-terminal-position = top
 quick-terminal-screen = mouse
+macos-window-buttons = hidden
 font-family = FiraCode Nerd Font Mono
 copy-on-select = clipboard
-background-opacity = 0.9
+background-opacity = 0.85
+background-blur = 10
 auto-update-channel = tip
