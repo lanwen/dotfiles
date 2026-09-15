@@ -37,3 +37,8 @@ fpath=(/Users/lanwen/.docker/completions $fpath)
 autoload -Uz compinit
 (( ${+_comps[docker]} )) || compinit
 # End of Docker CLI completions
+
+# safe-defaults: package-manager wrappers
+export PATH="/Users/lanwen/.local/bin:$PATH"
+
+eval "$(starship init zsh)"

@@ -7,6 +7,7 @@ synced_files = [".gitignore"]
 name = "base"
 synced_files = [
     ".config/mise/config.toml",
+    ".config/starship.toml",
     ".gitconfig",
     ".zprofile",
     ".zshrc",
