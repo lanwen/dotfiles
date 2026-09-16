@@ -6,3 +6,4 @@ export PATH="$PATH:/Users/lanwen/.docker/bin"
 export PATH="$PATH:/Users/lanwen/Library/Application Support/JetBrains/Toolbox/scripts"
 
 export PATH="/Users/lanwen/bin:$PATH"
+export PATH="${GOPATH:-$HOME/go}/bin:$PATH"

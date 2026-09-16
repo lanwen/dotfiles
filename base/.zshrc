@@ -42,3 +42,7 @@ autoload -Uz compinit
 export PATH="/Users/lanwen/.local/bin:$PATH"
 
 eval "$(starship init zsh)"
+
+# Let Starship display the aws-sso role credential expiry.
+[[ -n ${AWS_SSO_SESSION_EXPIRATION:-} ]] &&
+  export AWS_SESSION_EXPIRATION="$AWS_SSO_SESSION_EXPIRATION"
