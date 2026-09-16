@@ -82,11 +82,13 @@ ncdu
 watch
 mosh
 bruno
-
-# migrate to https://github.com/starship/starship?
+starship
 
 # https://departuremono.com/
 font-departure-mono
+font-sn-pro
+font-crimson-pro
+font-atkinson-hyperlegible-next
 hl # json/logfmt logs formatter https://github.com/pamburus/hl
 font-fira-code-nerd-font
 jetbrains-toolbox
