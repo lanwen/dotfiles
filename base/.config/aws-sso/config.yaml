@@ -1,0 +1,62 @@
+SSOConfig:
+    Default:
+        SSORegion: us-east-1
+        StartUrl: https://docker.awsapps.com/start
+        Accounts:
+            313121495448:
+                Name: uc
+                Roles:
+                    TestcontainersEngineers:
+                        Profile: uc
+            447924746603:
+                Name: ucs
+                Roles:
+                    TestcontainersEngineers:
+                        Profile: ucs
+            318510287843:
+                Name: bw
+                Roles:
+                    TestcontainersEngineers:
+                        Profile: bw
+            539272219385:
+                Name: bws
+                Roles:
+                    TestcontainersEngineers:
+                        Profile: bws
+            622992712626:
+                Name: sw
+                Roles:
+                    TestcontainersEngineers:
+                        Profile: sw
+            602326734147:
+                Name: sws
+                Roles:
+                    TestcontainersEngineers:
+                        Profile: sws
+            300042230143:
+                Name: tiaa
+                Roles:
+                    TestcontainersEngineers:
+                        Profile: tiaa
+ConsoleDuration: 720
+CacheRefresh: 168
+UrlAction: exec
+UrlExecCommand:
+    - /usr/bin/open
+    - -a
+    - /Applications/Firefox.app
+    - -n
+    - --args
+    - --profile
+    - /Users/lanwen/Library/Application Support/Firefox/Profiles/cP89VZaw.Profile 1
+    - --new-tab
+    - "%s"
+LogLevel: error
+SecureStore: 1password
+OnePassword:
+    Vault: AWS
+    Account: kirill.merkushev@docker.com
+HistoryLimit: 10
+HistoryMinutes: 1440
+ProfileFormat: "{{ .AccountIdPad }}:{{ .RoleName }}"
+FullTextSearch: true
