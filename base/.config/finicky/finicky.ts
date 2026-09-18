@@ -26,6 +26,12 @@ export default {
     checkForUpdates: false,
   },
   handlers: [
+    // Every link opened from Zoom uses Work, before URL-specific rules.
+    {
+      match: (_url: URL, { opener }) =>
+        opener?.bundleId === "us.zoom.xos" || /zoom/i.test(opener?.name ?? ""),
+      browser: workFirefox,
+    },
     // Work links. Finicky globs are case-sensitive.
     {
       match: [
@@ -49,6 +55,13 @@ export default {
       match: [
         "okta.com/*",
         "*.okta.com/*",
+      ],
+      browser: workFirefox,
+    },
+
+    {
+      match: [
+        "docker.atlassian.net/*",
       ],
       browser: workFirefox,
     },
