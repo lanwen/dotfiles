@@ -252,3 +252,9 @@ name = "starship"
 manager = "brew"
 package_name = "starship"
 binary_name = "starship"
+
+[[profiles]]
+name = "work"
+inherits = "base"
+synced_files = []
+packages = []
