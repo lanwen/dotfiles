@@ -8,7 +8,6 @@ name = "base"
 synced_files = [
     ".agents/AGENTS.md",
     ".agents/rules/work.md",
-    ".config/aws-sso/config.yaml",
     ".config/finicky",
     ".config/mise/config.toml",
     ".config/starship.toml",
@@ -256,5 +255,5 @@ binary_name = "starship"
 [[profiles]]
 name = "work"
 inherits = "base"
-synced_files = []
+synced_files = [".config/aws-sso/config.yaml"]
 packages = []
