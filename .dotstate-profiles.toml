@@ -9,6 +9,7 @@ synced_files = [
     ".config/mise/config.toml",
     ".config/starship.toml",
     ".gitconfig",
+    ".raycast/scripts",
     ".zprofile",
     ".zshrc",
     "Library/Application Support/com.mitchellh.ghostty/config.ghostty",
