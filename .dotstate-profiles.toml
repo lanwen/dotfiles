@@ -6,6 +6,7 @@ synced_files = [".gitignore"]
 [[profiles]]
 name = "base"
 synced_files = [
+    ".config/finicky",
     ".config/mise/config.toml",
     ".config/starship.toml",
     ".gitconfig",

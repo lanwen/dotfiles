@@ -1,0 +1,72 @@
+import type {
+  BrowserResolver,
+  FinickyConfig,
+} from "/Applications/Finicky.app/Contents/Resources/finicky.d.ts";
+
+// Use profile paths: Finicky 4.2.2 only resolves names from legacy profiles.ini.
+const firefoxProfile = (directory: string): BrowserResolver => (url) => ({
+  name: "/Applications/Firefox.app",
+  appType: "path",
+  args: [
+    "-n",
+    "--args",
+    "--profile",
+    `/Users/lanwen/Library/Application Support/Firefox/Profiles/${directory}`,
+    "--new-tab",
+    url.href,
+  ],
+});
+
+const workFirefox = firefoxProfile("cP89VZaw.Profile 1");
+const originalFirefox = firefoxProfile("to65ryds.default-release");
+
+export default {
+  defaultBrowser: originalFirefox,
+  options: {
+    checkForUpdates: false,
+  },
+  handlers: [
+    // Work links. Finicky globs are case-sensitive.
+    {
+      match: [
+        "https://github.com/docker",
+        "http://github.com/docker",
+        "github.com/docker/*",
+        "https://github.com/AtomicJar",
+        "http://github.com/AtomicJar",
+        "github.com/AtomicJar/*",
+      ],
+      browser: workFirefox,
+    },
+    {
+      match: [
+        "grafana.com/*",
+        "*.grafana.com/*",
+      ],
+      browser: workFirefox,
+    },
+    {
+      match: [
+        "okta.com/*",
+        "*.okta.com/*",
+      ],
+      browser: workFirefox,
+    },
+
+    // Other GitHub links use the original profile, even when opened from Slack.
+    {
+      match: [
+        "github.com/*",
+      ],
+      browser: originalFirefox,
+    },
+
+    {
+      match: (url: URL, { opener }) => {
+        console.log("opener", opener);
+        return opener?.name.includes("Slack") || false;
+      },
+      browser: workFirefox,
+    },
+  ],
+} satisfies FinickyConfig;
