@@ -255,5 +255,8 @@ binary_name = "starship"
 [[profiles]]
 name = "work"
 inherits = "base"
-synced_files = [".config/aws-sso/config.yaml"]
+synced_files = [
+    ".config/aws-sso/config.yaml",
+    ".config/herdr/config.toml",
+]
 packages = []

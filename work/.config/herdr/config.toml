@@ -1,0 +1,6 @@
+onboarding = false
+
+[[keys.command]]
+key = "prefix+ctrl+r"
+type = "plugin_action"
+command = "persiyanov.reviewr.toggle"   # <plugin_id>.<action_id> — note the id, not the name
