@@ -5,6 +5,14 @@ Some useful things for laptop
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle install --file ./Brewfile
+```
+
+Installed Homebrew formulae, casks, and taps are tracked in `Brewfile`.
+Refresh it after intentional package changes with:
+
+```sh
+brew bundle dump --force --file ./Brewfile --no-describe --formula --cask --tap
 ```
 
 ### mise
@@ -13,7 +21,6 @@ Global tool versions are tracked in `.config/mise/config.toml`.
 From this repository's root, restore them with:
 
 ```sh
-brew install mise
 mkdir -p ~/.config/mise
 cp .config/mise/config.toml ~/.config/mise/config.toml
 mise install --cd ~
@@ -34,7 +41,6 @@ The Ghostty configuration is tracked in `.config/ghostty/config.ghostty`.
 From this repository's root, restore it on macOS with:
 
 ```sh
-brew install --cask ghostty font-fira-code-nerd-font
 mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
 cp .config/ghostty/config.ghostty "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 ```
@@ -45,68 +51,6 @@ Appstore & Co
 - https://apps.apple.com/de/app/xcode/id497799835?l=en&mt=12
 - https://developer.apple.com/download/all/?q=Additional%20Tools ("Additional Tools for Xcode 12" contains Network Link Conditioner to test unstable networks)
 
-
-`brew list -1`
-
-
-```
-zsh-autosuggestions
-zsh-syntax-highlighting
-tailscale
-tldr
-gh
-fzf
-ripgrep # rg: fast text search
-bat # file viewer with syntax highlighting
-eza # ls alternative; ll and lt aliases
-dust # du alternative
-duf # df alternative
-superfile
-pstree
-psgrep
-
-#k8s related
-kubectl
-eksctl
-k9s
-awscli
-kubie # better kubectx
-kubecolor # https://kubecolor.github.io/
-fnm # faster nvm
-jq
-yq
-procs # replacement for ps written in Rust
-zoxide # for quick navigation
-coreutils # for hashing commands
-ncdu
-watch
-mosh
-bruno
-starship
-
-# https://departuremono.com/
-font-departure-mono
-font-sn-pro
-font-crimson-pro
-font-atkinson-hyperlegible-next
-hl # json/logfmt logs formatter https://github.com/pamburus/hl
-font-fira-code-nerd-font
-jetbrains-toolbox
-keepingyouawake
-raycast
-docker
-licecap
-# nice stats in the tray area
-stats
-vlc
-firefox
-telegram
-slack
-microsoft-remote-desktop
-# https://github.com/KartikLabhshetwar/better-shot screenshots
-bettershot
-mitmproxy
-```
 
 ## From sources?
 
@@ -234,4 +178,3 @@ curl -fsSL https://codedb.codegraff.com/install.sh | bash
 curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
 curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash -s -- --ui
 ```
-
