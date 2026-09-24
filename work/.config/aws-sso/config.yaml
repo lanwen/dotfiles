@@ -31,8 +31,11 @@ SSOConfig:
             602326734147:
                 Name: sws
                 Roles:
-                    TestcontainersEngineers:
+                    OffloadReadOnly:
                         Profile: sws
+                    OffloadElevated:
+                        Profile: sws:admin
+                        Via: arn:aws:iam::602326734147:role/OffloadReadOnly
             300042230143:
                 Name: tiaa
                 Roles:

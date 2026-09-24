@@ -2,4 +2,5 @@
 go = "latest"
 java = "temurin-25"
 node = "lts"
+packer = "latest"
 terraform = "latest"

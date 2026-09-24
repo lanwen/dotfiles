@@ -46,8 +46,11 @@ export default {
     },
     {
       match: [
+        "claude.ai/*",
         "grafana.com/*",
         "*.grafana.com/*",
+        "*.notion.com/*",
+        "*.notion.so/*",
       ],
       browser: workFirefox,
     },
