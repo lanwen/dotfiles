@@ -1,0 +1,19 @@
+schemaVersion: "1"
+agent: claude
+workspace: ${{ env.projectDir }}
+
+kits:
+  - docker.io/sbx/playwright-kit:latest
+  - docker.io/sbx/git-ssh-sign-kit:latest
+  - docker.io/sbx/github-ssh-kit:latest
+
+mcp:
+  servers:
+    - name: obsidian
+      command: /usr/bin/env
+      args:
+        - OBSIDIAN_VAULT=work
+        - obsidian-cli-mcp
+
+additionalWorkspaces:
+  - path: /Users/lanwen/obsidian/

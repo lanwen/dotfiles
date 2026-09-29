@@ -56,6 +56,18 @@ for (const [href, directory] of cases) {
     assert.equal(handler, undefined, href);
   }
 }
+for (const opener of [
+  { name: "submarine" },
+  { name: "Submarine" },
+  { path: "/opt/homebrew/bin/submarine" },
+  { path: "/opt/homebrew/Cellar/submarine/0.389.0+submarine/bin/submarine" },
+]) {
+  const url = new URL("https://github.com/lanwen");
+  const options = { opener };
+  const handler = config.handlers.find((handler) => matches(handler.match, url, options));
+  assert.equal(handler.browser(url, options).args[3],
+    "/Users/lanwen/Library/Application Support/Firefox/Profiles/cP89VZaw.Profile 1");
+}
 const slackRule = config.handlers.at(-1);
 assert.equal(slackRule.match(new URL("https://example.org"), { opener: null }), false);
 const slackUrl = new URL("https://example.org/");

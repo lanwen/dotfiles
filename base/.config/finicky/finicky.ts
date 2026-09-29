@@ -26,10 +26,29 @@ export default {
     checkForUpdates: false,
   },
   handlers: [
-    // Every link opened from Zoom uses Work, before URL-specific rules.
+    // Links from Zoom, Tailscale, Bruno, or Submarine use Work before URL-specific rules.
     {
       match: (_url: URL, { opener }) =>
-        opener?.bundleId === "us.zoom.xos" || /zoom/i.test(opener?.name ?? ""),
+        opener?.bundleId === "us.zoom.xos" ||
+        /zoom/i.test(opener?.name ?? ""),
+      browser: workFirefox,
+    },
+    {
+      match: (_url: URL, { opener }) =>
+        opener?.bundleId === "io.tailscale.ipn.macsys" ||
+        /tailscale/i.test(opener?.name ?? ""),
+      browser: workFirefox,
+    },
+    {
+      match: (_url: URL, { opener }) =>
+        opener?.bundleId === "com.usebruno.app" ||
+        /bruno/i.test(opener?.name ?? ""),
+      browser: workFirefox,
+    },
+    {
+      match: (_url: URL, { opener }) =>
+        /submarine/i.test(opener?.name ?? "") ||
+        /\/submarine$/.test(opener?.path ?? ""),
       browser: workFirefox,
     },
     // Work links. Finicky globs are case-sensitive.
@@ -49,6 +68,7 @@ export default {
         "claude.ai/*",
         "grafana.com/*",
         "*.grafana.com/*",
+        "dockerinc.grafana.net/*",
         "*.notion.com/*",
         "*.notion.so/*",
       ],
@@ -65,6 +85,7 @@ export default {
     {
       match: [
         "docker.atlassian.net/*",
+        "login-stage.docker.com/*",
       ],
       browser: workFirefox,
     },
