@@ -13,6 +13,7 @@ $kubernetes\
 $cmd_duration\
 $line_break\
 $python\
+$env_var\
 $character"""
 
 [directory]
@@ -22,6 +23,10 @@ style = "blue"
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
+
+[env_var]
+variable = "STARSHIP_ZLE_MODE"
+format = "[$env_value](bold yellow) "
 
 [git_branch]
 format = "[$branch]($style)"

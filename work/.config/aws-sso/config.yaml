@@ -6,28 +6,43 @@ SSOConfig:
             313121495448:
                 Name: uc
                 Roles:
-                    TestcontainersEngineers:
+                    OffloadReadOnly:
                         Profile: uc
+                    OffloadElevated:
+                        Profile: uc:admin
+                        Via: arn:aws:iam::313121495448:role/OffloadReadOnly
             447924746603:
                 Name: ucs
                 Roles:
-                    TestcontainersEngineers:
+                    OffloadReadOnly:
                         Profile: ucs
+                    OffloadElevated:
+                        Profile: ucs:admin
+                        Via: arn:aws:iam::447924746603:role/OffloadReadOnly
             318510287843:
                 Name: bw
                 Roles:
-                    TestcontainersEngineers:
+                    OffloadReadOnly:
                         Profile: bw
+                    OffloadElevated:
+                        Profile: bw:admin
+                        Via: arn:aws:iam::318510287843:role/OffloadReadOnly
             539272219385:
                 Name: bws
                 Roles:
-                    TestcontainersEngineers:
+                    OffloadReadOnly:
                         Profile: bws
+                    OffloadElevated:
+                        Profile: bws:admin
+                        Via: arn:aws:iam::539272219385:role/OffloadReadOnly
             622992712626:
                 Name: sw
                 Roles:
-                    TestcontainersEngineers:
+                    OffloadReadOnly:
                         Profile: sw
+                    OffloadElevated:
+                        Profile: sw:admin
+                        Via: arn:aws:iam::622992712626:role/OffloadReadOnly
             602326734147:
                 Name: sws
                 Roles:
@@ -39,8 +54,11 @@ SSOConfig:
             300042230143:
                 Name: tiaa
                 Roles:
-                    TestcontainersEngineers:
+                    OffloadReadOnly:
                         Profile: tiaa
+                    OffloadElevated:
+                        Profile: tiaa:admin
+                        Via: arn:aws:iam::300042230143:role/OffloadReadOnly
 ConsoleDuration: 720
 CacheRefresh: 168
 UrlAction: exec

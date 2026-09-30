@@ -71,6 +71,7 @@ export default {
         "dockerinc.grafana.net/*",
         "*.notion.com/*",
         "*.notion.so/*",
+	"*.atlassian.com/*",
       ],
       browser: workFirefox,
     },
@@ -85,6 +86,7 @@ export default {
     {
       match: [
         "docker.atlassian.net/*",
+        "login.docker.com/*",
         "login-stage.docker.com/*",
       ],
       browser: workFirefox,
