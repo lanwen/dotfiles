@@ -1,9 +1,22 @@
 onboarding = false
 
+[ui]
+prompt_new_tab_name = false
+
+[keys]
+prefix = ["ctrl+b", "ctrl+a"]
+switch_tab = "prefix+1..9"
+switch_workspace = "prefix+alt+1..9"
+previous_workspace = "prefix+alt+p"
+next_workspace = "prefix+alt+n"
+
+
 [[keys.command]]
 key = "prefix+ctrl+r"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"   # <plugin_id>.<action_id> — note the id, not the name
+
+
 
 # Sand-colored labels for Docker Sandboxes machines.
 [ui.sidebar.agents]

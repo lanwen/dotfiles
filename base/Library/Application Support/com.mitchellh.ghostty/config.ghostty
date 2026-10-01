@@ -1,8 +1,74 @@
+# toggle ghostty quick terminal
 keybind = global:cmd+alt+shift+c=toggle_quick_terminal
+
+# herdr shortcuts
+# enable persistent table
+keybind = cmd+shift+h=activate_key_table:herdr
+# disable persistent table
+keybind = herdr/cmd+shift+h=deactivate_key_table
+# open settings; prefix>s
+keybind = herdr/cmd+,=text:\x02s
+# create a new tab; prefix>c
+keybind = herdr/cmd+t=text:\x02c
+# switch tab 1–9; prefix>1..9
+keybind = herdr/cmd+1=text:\x021
+keybind = herdr/cmd+2=text:\x022
+keybind = herdr/cmd+3=text:\x023
+keybind = herdr/cmd+4=text:\x024
+keybind = herdr/cmd+5=text:\x025
+keybind = herdr/cmd+6=text:\x026
+keybind = herdr/cmd+7=text:\x027
+keybind = herdr/cmd+8=text:\x028
+keybind = herdr/cmd+9=text:\x029
+# switch workspace 1–9; prefix>alt+1..9
+keybind = herdr/alt+1=text:\x02\x1b1
+keybind = herdr/alt+2=text:\x02\x1b2
+keybind = herdr/alt+3=text:\x02\x1b3
+keybind = herdr/alt+4=text:\x02\x1b4
+keybind = herdr/alt+5=text:\x02\x1b5
+keybind = herdr/alt+6=text:\x02\x1b6
+keybind = herdr/alt+7=text:\x02\x1b7
+keybind = herdr/alt+8=text:\x02\x1b8
+keybind = herdr/alt+9=text:\x02\x1b9
+# split right; prefix>v
+keybind = herdr/cmd+d=text:\x02v
+# split down; prefix>minus
+keybind = herdr/cmd+shift+d=text:\x02-
+# focus pane right; prefix>l
+keybind = herdr/cmd+right=text:\x02l
+# focus pane up; prefix>k
+keybind = herdr/cmd+up=text:\x02k
+# focus pane left; prefix>h
+keybind = herdr/cmd+left=text:\x02h
+# focus pane down; prefix>j
+keybind = herdr/cmd+down=text:\x02j
+# swap pane right; prefix>shift+l
+keybind = herdr/cmd+shift+right=text:\x02L
+# swap pane up; prefix>shift+k
+keybind = herdr/cmd+shift+up=text:\x02K
+# swap pane left; prefix>shift+h
+keybind = herdr/cmd+shift+left=text:\x02H
+# swap pane down; prefix>shift+j
+keybind = herdr/cmd+shift+down=text:\x02J
+# create a new workspace; prefix>shift+n
+keybind = herdr/alt+n=text:\x02N
+# open workspace picker; prefix>w
+keybind = herdr/alt+w=text:\x02w
+# previous workspace; prefix>alt+p
+keybind = herdr/alt+up=text:\x02\x1bp
+# next workspace; prefix>alt+n
+keybind = herdr/alt+down=text:\x02\x1bn
+# open goto picker; prefix>g
+keybind = herdr/cmd+g=text:\x02g
+# toggle pane zoom; prefix>z
+keybind = herdr/alt+z=text:\x02z
+
 initial-command = direct:/opt/homebrew/bin/herdr
 quick-terminal-position = top
 quick-terminal-screen = mouse
 macos-window-buttons = hidden
+# use option for shortcuts instead of macos character composition
+macos-option-as-alt = true
 font-family = FiraCode Nerd Font Mono
 copy-on-select = clipboard
 background-opacity = 0.85
