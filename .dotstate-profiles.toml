@@ -256,6 +256,8 @@ binary_name = "starship"
 name = "work"
 inherits = "base"
 synced_files = [
+    ".agents/CODING_STANDARDS.md",
+    ".agents/rules",
     ".config/aws-sso/config.yaml",
     ".config/herdr/config.toml",
     ".sbxenv.yaml",

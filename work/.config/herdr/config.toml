@@ -18,6 +18,12 @@ command = "persiyanov.reviewr.toggle"   # <plugin_id>.<action_id> — note the i
 
 
 
+[[keys.command]]
+key = "prefix+comma"
+type = "plugin_action"
+command = "herdr-last.toggle-workspace"
+description = "toggle to last workspace"
+
 # Sand-colored labels for Docker Sandboxes machines.
 [ui.sidebar.agents]
 rows = [

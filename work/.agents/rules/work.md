@@ -1,0 +1,1 @@
+/Users/lanwen/code/github.com/lanwen/dotfiles/base/.agents/rules/work.md

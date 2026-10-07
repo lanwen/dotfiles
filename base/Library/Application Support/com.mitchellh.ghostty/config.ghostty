@@ -56,6 +56,8 @@ keybind = herdr/alt+n=text:\x02N
 keybind = herdr/alt+w=text:\x02w
 # previous workspace; prefix>alt+p
 keybind = herdr/alt+up=text:\x02\x1bp
+# toggle to last workspace; prefix>comma
+keybind = herdr/alt+0=text:\x02,
 # next workspace; prefix>alt+n
 keybind = herdr/alt+down=text:\x02\x1bn
 # open goto picker; prefix>g
