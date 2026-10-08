@@ -3,6 +3,13 @@ onboarding = false
 [ui]
 prompt_new_tab_name = false
 
+[ui.toast]
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
+
 [keys]
 prefix = ["ctrl+b", "ctrl+a"]
 switch_tab = "prefix+1..9"
