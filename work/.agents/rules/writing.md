@@ -2,6 +2,8 @@
 
 ## Pull requests
 
+Use `$visual-pr` when creating a PR or updating its description, including each PR in a stack.
+When multiple PRs depend on one another or require a merge order, use the `github/gh-stack` extension for stacked PRs.
 Perform relevant verification, including tests, formatting, linting, and diff checks.
 In PR descriptions, mention verification only when there is a meaningful non-routine result.
 

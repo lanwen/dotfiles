@@ -1,7 +1,10 @@
 version = 2
 
 [common]
-synced_files = [".gitignore"]
+synced_files = [
+    ".config/herdr/config.toml",
+    ".gitignore",
+]
 
 [[profiles]]
 name = "base"
@@ -258,8 +261,8 @@ inherits = "base"
 synced_files = [
     ".agents/CODING_STANDARDS.md",
     ".agents/rules",
+    ".claude/CLAUDE.md",
     ".config/aws-sso/config.yaml",
-    ".config/herdr/config.toml",
     ".sbxenv.yaml",
 ]
 packages = []
