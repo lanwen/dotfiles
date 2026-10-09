@@ -1,24 +1,41 @@
-# Activate mise-managed development tools.
+##############################
+#
+# Development tools (mise)
+#
+##############################
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 
+##############################
+#
+# Completion setup
+#
 # Initialize completion, including Docker, before plugins wrap its widgets.
+#
+##############################
 fpath=(/Users/lanwen/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 
-# fzf shortcuts and Tab completion menu.
+##############################
+#
+# fzf completion menu and previews
+#
+##############################
 source <(fzf --zsh)
 source "/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
 zstyle ':completion:*' menu no
 zstyle ':completion:*:descriptions' format '[%d]'
-zstyle ':fzf-tab:*' fzf-flags '--height=60%' '--layout=reverse' '--border' '--preview-window=right:55%:wrap'
+zstyle ':fzf-tab:*' fzf-flags '--height=60%' '--layout=reverse' '--border' \
+  '--preview-window=right:55%:wrap'
 # Preview directory names and sizes with eza, and file contents with bat.
 zstyle ':fzf-tab:complete:*:*' fzf-preview '
   target=${(Q)realpath}
   if [[ -d $target ]]; then
-    eza -lah --group-directories-first --no-permissions --no-user --no-time --color=always --icons -- "$target"
+    eza -lah --group-directories-first --no-permissions --no-user --no-time \
+      --color=always --icons -- "$target"
   elif [[ -f $target ]]; then
-    bat --color=always --style=numbers --paging=never --line-range=:200 -- "$target"
+    bat --color=always --style=numbers --paging=never --line-range=:200 \
+      -- "$target"
   else
     print -r -- "$desc"
   fi
@@ -27,13 +44,21 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview '
 zstyle ':fzf-tab:complete:-command-:*' fzf-preview '
   if preview_text=$(tldr --color "$word" 2>/dev/null); then
     print -r -- "$preview_text"
-  elif preview_text=$(MANPAGER=cat MANWIDTH=${FZF_PREVIEW_COLUMNS:-80} man "$word" 2>/dev/null); then
-    print -r -- "$preview_text" | col -b | bat --language=man --color=always --style=plain --paging=never
+  elif preview_text=$(
+    MANPAGER=cat MANWIDTH=${FZF_PREVIEW_COLUMNS:-80} man "$word" 2>/dev/null
+  ); then
+    print -r -- "$preview_text" | col -b | \
+      bat --language=man --color=always --style=plain --paging=never
   else
     whence -v -- "$word"
   fi
 '
 
+##############################
+#
+# Aliases
+#
+##############################
 alias ps='procs'
 alias vi='nvim'
 alias eza='eza --group-directories-first' # List folders before files.
@@ -46,26 +71,36 @@ alias df='duf'
 alias tf=terraform
 alias k=kubectl
 
+##############################
+#
+# Editor and display preferences
+#
+##############################
 export BAT_THEME=ansi
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-
-
+##############################
+#
+# History and filename sorting
+#
+##############################
 HISTSIZE=5000             # Maximum number of commands kept in memory.
 HISTFILE=~/.zsh_history   # File where command history is saved.
 SAVEHIST=$HISTSIZE        # Maximum number of commands saved to that file.
 
 # setopt enables an option; unsetopt disables it.
-setopt sharehistory          # Write commands as entered and import history from other sessions.
-setopt hist_ignore_space     # Omit commands starting with a space from saved history.
+setopt sharehistory         # Save immediately; share history between sessions.
+setopt hist_ignore_space    # Skip commands starting with a space.
 setopt hist_ignore_all_dups  # Remove an older copy when a command is repeated.
-setopt hist_save_no_dups     # Omit older duplicate commands when rewriting the history file.
-setopt numeric_glob_sort    # Sort numbers naturally in filename matches: file2 before file10.
+setopt hist_save_no_dups    # Omit older duplicates when rewriting history.
+setopt numeric_glob_sort   # Sort filenames naturally: file2 before file10.
 
-
-
-# Deja (Predictive inline suggestions)
+##############################
+#
+# Deja inline suggestions
+#
+##############################
 DEJA_CYCLE_KEY='' # Leave Tab for zsh completion instead of cycling suggestions.
 DEJA_ACCEPT_KEY='^[[1;2C' # Shift+Right accepts the whole suggestion.
 DEJA_CYCLE_FUZZY_KEY='' # Free Shift+Right from changing the fuzzy setting.
@@ -74,20 +109,23 @@ if [[ -r "$HOME/.local/share/deja/init.zsh" ]]; then
 else
   eval "$(deja init zsh)"
 fi
-DEJA_IGNORE_WIDGETS+=(starship_visual_indicator) # Prompt redraws do not edit input.
+# Prompt redraws do not edit input.
+DEJA_IGNORE_WIDGETS+=(starship_visual_indicator)
 
-# Vi mode and Ghostty keys
+##############################
 #
-# Vi mode is a zsh command editing mode.
-# Ghostty starts zsh before this file sets EDITOR.
-# Set vi mode here so every tab uses the same editing keys.
+# Vi mode and keyboard bindings
+#
+# Force vi mode even when EDITOR was unset at shell startup.
 #
 # Ghostty sends Option-Left and Option-Right in two formats.
 # These bindings move by one word in vi insert mode.
+#
+##############################
 bindkey -v
 bindkey -M viins '^I' fzf-tab-complete # Tab opens the fzf completion menu.
-# Up cycles suggestions without changing input; an empty line starts history browsing.
-# Keep browsing history after recalling a command from an empty line.
+# Up cycles suggestions; starting from an empty line browses history.
+# Recalled history remains navigable.
 _suggestion_up_or_history() {
   if [[ -z $BUFFER ]] || (( HISTNO < HISTCMD )); then
     zle up-line-or-history
@@ -120,10 +158,19 @@ bindkey -M viins '\e[1;3D' backward-word
 bindkey -M viins '\e[1;3C' forward-word
 bindkey -M viins '\eb' backward-word
 bindkey -M viins '\ef' forward-word
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+##############################
+#
+# 1Password SSH agent and OCI authentication
+#
+##############################
+export \
+ SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 oci-auth() {
-    export OCI_CLI_KEY_CONTENT="$(op read "op://Private/zz2fpyuhmorsssme5o4peepdoi/private key")"
+    export OCI_CLI_KEY_CONTENT="$(
+      op read "op://Private/zz2fpyuhmorsssme5o4peepdoi/private key"
+    )"
 }
 
 oci() {
@@ -134,25 +181,42 @@ oci() {
     command oci "$@"
 }
 
+##############################
+#
+# Directory navigation
+#
+##############################
 eval "$(zoxide init --cmd cd zsh)"
 
-# Color directories in Tab completion bold blue, matching eza.
+##############################
+#
+# Completion colors
+#
+# Bold blue directories, matching eza.
+#
+##############################
 zstyle ':completion:*' list-colors 'di=1;34'
 
-# safe-defaults: package-manager wrappers
+##############################
+#
+# Local commands and package-manager wrappers
+#
+##############################
 export PATH="/Users/lanwen/.local/bin:$PATH"
 
+##############################
+#
+# Starship prompt and mode labels
+#
+##############################
 if (( ! ${+functions[starship_zle-keymap-select]} )); then
   eval "$(starship init zsh)"
-elif [[ ${widgets[zle-keymap-select]:-} == user:starship_zle-keymap-select-wrapped ]]; then
+elif [[ ${widgets[zle-keymap-select]:-} == \
+  user:starship_zle-keymap-select-wrapped ]]; then
   zle -N zle-keymap-select starship_zle-keymap-select
 fi
 
-# Prompt mode labels
-#
-# A keymap is the active set of key bindings.
-# Starship reads STARSHIP_ZLE_MODE when it draws the prompt.
-# This function sets NORMAL in command mode.
+# Expose NORMAL mode to Starship through STARSHIP_ZLE_MODE.
 starship_zle-keymap-select() {
   if [[ $KEYMAP == vicmd ]]; then
     export STARSHIP_ZLE_MODE=NORMAL
@@ -162,9 +226,7 @@ starship_zle-keymap-select() {
   zle reset-prompt
 }
 
-# A redraw hook runs before zsh draws the command line.
-# It sets VISUAL while a selection is active.
-# It draws the prompt again after the label changes.
+# Display VISUAL while a selection is active; redraw when it changes.
 starship_visual_indicator() {
   local visual_state=0
   (( REGION_ACTIVE )) && visual_state=1
@@ -184,7 +246,13 @@ starship_visual_indicator() {
 autoload -Uz add-zle-hook-widget add-zsh-hook
 add-zle-hook-widget line-pre-redraw starship_visual_indicator
 
+##############################
+#
+# Cursor shape
+#
 # Use a steady block in vi normal mode and a steady beam in insert mode.
+#
+##############################
 _zsh_cursor_shape() {
   if [[ $KEYMAP == vicmd ]]; then
     print -n -- $'\e[2 q' # 2 = steady block; 1 = blinking block.
@@ -193,11 +261,21 @@ _zsh_cursor_shape() {
   fi
 }
 add-zle-hook-widget keymap-select _zsh_cursor_shape
-# Set the starting cursor before each prompt without wrapping Deja's line-init hook.
+# Keep Deja's line-init hook unwrapped to avoid recursion on reload.
 add-zsh-hook precmd _zsh_cursor_shape
 
-# Let Starship display the aws-sso role credential expiry.
+##############################
+#
+# AWS credential expiry for Starship
+#
+##############################
 [[ -n ${AWS_SSO_SESSION_EXPIRATION:-} ]] &&
   export AWS_SESSION_EXPIRATION="$AWS_SSO_SESSION_EXPIRATION"
 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+##############################
+#
+# Command syntax highlighting
+#
+##############################
+source \
+  $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
