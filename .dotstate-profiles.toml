@@ -262,6 +262,7 @@ synced_files = [
     ".agents/CODING_STANDARDS.md",
     ".agents/rules",
     ".claude/CLAUDE.md",
+    ".codex/AGENTS.md",
     ".config/aws-sso/config.yaml",
     ".sbxenv.yaml",
 ]
