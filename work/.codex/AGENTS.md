@@ -1,5 +1,9 @@
 Before any other action, read and follow [global agent instructions](/Users/lanwen/.agents/AGENTS.md). Resolve links inside that file relative to `/Users/lanwen/.agents/`.
 
+When discovering tools through `ALL_TOOLS`, return matching names first.
+Read full descriptions and argument definitions only for selected tools.
+Reuse definitions already available in the conversation.
+
 <!-- codedb:begin v0.2.5860 -->
 ## codedb — code intelligence policy
 

@@ -1,13 +1,46 @@
 # Activate mise-managed development tools.
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 
-#fzf
+# Initialize completion, including Docker, before plugins wrap its widgets.
+fpath=(/Users/lanwen/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
+# fzf shortcuts and Tab completion menu.
 source <(fzf --zsh)
+source "/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
+zstyle ':completion:*' menu no
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':fzf-tab:*' fzf-flags '--height=60%' '--layout=reverse' '--border' '--preview-window=right:55%:wrap'
+# Preview directory names and sizes with eza, and file contents with bat.
+zstyle ':fzf-tab:complete:*:*' fzf-preview '
+  target=${(Q)realpath}
+  if [[ -d $target ]]; then
+    eza -lah --group-directories-first --no-permissions --no-user --no-time --color=always --icons -- "$target"
+  elif [[ -f $target ]]; then
+    bat --color=always --style=numbers --paging=never --line-range=:200 -- "$target"
+  else
+    print -r -- "$desc"
+  fi
+'
+# Preview command examples, then the manual, then the command location.
+zstyle ':fzf-tab:complete:-command-:*' fzf-preview '
+  if preview_text=$(tldr --color "$word" 2>/dev/null); then
+    print -r -- "$preview_text"
+  elif preview_text=$(MANPAGER=cat MANWIDTH=${FZF_PREVIEW_COLUMNS:-80} man "$word" 2>/dev/null); then
+    print -r -- "$preview_text" | col -b | bat --language=man --color=always --style=plain --paging=never
+  else
+    whence -v -- "$word"
+  fi
+'
 
 alias ps='procs'
 alias vi='nvim'
-alias ll='eza -lah --git'
-alias lt='eza --tree --level=2'
+alias eza='eza --group-directories-first' # List folders before files.
+alias ll='eza -lah --git --icons'
+alias lt='eza --tree --level=2 --icons'
+alias tree='eza --tree --level=3 --icons'
+alias ls='eza --icons'
 alias du='dust'
 alias df='duf'
 alias tf=terraform
@@ -16,6 +49,32 @@ alias k=kubectl
 export BAT_THEME=ansi
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+
+
+HISTSIZE=5000             # Maximum number of commands kept in memory.
+HISTFILE=~/.zsh_history   # File where command history is saved.
+SAVEHIST=$HISTSIZE        # Maximum number of commands saved to that file.
+
+# setopt enables an option; unsetopt disables it.
+setopt sharehistory          # Write commands as entered and import history from other sessions.
+setopt hist_ignore_space     # Omit commands starting with a space from saved history.
+setopt hist_ignore_all_dups  # Remove an older copy when a command is repeated.
+setopt hist_save_no_dups     # Omit older duplicate commands when rewriting the history file.
+setopt numeric_glob_sort    # Sort numbers naturally in filename matches: file2 before file10.
+
+
+
+# Deja (Predictive inline suggestions)
+DEJA_CYCLE_KEY='' # Leave Tab for zsh completion instead of cycling suggestions.
+DEJA_ACCEPT_KEY='^[[1;2C' # Shift+Right accepts the whole suggestion.
+DEJA_CYCLE_FUZZY_KEY='' # Free Shift+Right from changing the fuzzy setting.
+if [[ -r "$HOME/.local/share/deja/init.zsh" ]]; then
+  source "$HOME/.local/share/deja/init.zsh"
+else
+  eval "$(deja init zsh)"
+fi
+DEJA_IGNORE_WIDGETS+=(starship_visual_indicator) # Prompt redraws do not edit input.
 
 # Vi mode and Ghostty keys
 #
@@ -26,6 +85,37 @@ export VISUAL='nvim'
 # Ghostty sends Option-Left and Option-Right in two formats.
 # These bindings move by one word in vi insert mode.
 bindkey -v
+bindkey -M viins '^I' fzf-tab-complete # Tab opens the fzf completion menu.
+# Up cycles suggestions without changing input; an empty line starts history browsing.
+# Keep browsing history after recalling a command from an empty line.
+_suggestion_up_or_history() {
+  if [[ -z $BUFFER ]] || (( HISTNO < HISTCMD )); then
+    zle up-line-or-history
+  elif [[ -n $POSTDISPLAY ]] && (( CURSOR == ${#BUFFER} )); then
+    zle deja-cycle
+  fi
+}
+# Right accepts a fuzzy replacement in full, or one word of a normal suggestion.
+_suggestion_right_or_word() {
+  if [[ -n $POSTDISPLAY ]] && (( CURSOR == ${#BUFFER} )); then
+    if [[ $_DEJA_SUGGESTION_MODE == fuzzy ]]; then
+      zle deja-accept
+    else
+      zle emacs-forward-word
+    fi
+  else
+    zle .forward-char
+  fi
+}
+zle -N _suggestion_up_or_history
+zle -N _suggestion_right_or_word
+bindkey -M viins '\e[A' _suggestion_up_or_history
+bindkey -M viins '\eOA' _suggestion_up_or_history
+bindkey -M viins '\e[B' down-line-or-history
+bindkey -M viins '\eOB' down-line-or-history
+bindkey -M viins '\e[C' _suggestion_right_or_word
+bindkey -M viins '\eOC' _suggestion_right_or_word
+bindkey -M viins '\e[1;2C' deja-accept
 bindkey -M viins '\e[1;3D' backward-word
 bindkey -M viins '\e[1;3C' forward-word
 bindkey -M viins '\eb' backward-word
@@ -45,12 +135,9 @@ oci() {
 }
 
 eval "$(zoxide init --cmd cd zsh)"
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/lanwen/.docker/completions $fpath)
-autoload -Uz compinit
-(( ${+_comps[docker]} )) || compinit
-# End of Docker CLI completions
+
+# Color directories in Tab completion bold blue, matching eza.
+zstyle ':completion:*' list-colors 'di=1;34'
 
 # safe-defaults: package-manager wrappers
 export PATH="/Users/lanwen/.local/bin:$PATH"
@@ -94,9 +181,23 @@ starship_visual_indicator() {
   zle reset-prompt
 }
 
-autoload -Uz add-zle-hook-widget
+autoload -Uz add-zle-hook-widget add-zsh-hook
 add-zle-hook-widget line-pre-redraw starship_visual_indicator
+
+# Use a steady block in vi normal mode and a steady beam in insert mode.
+_zsh_cursor_shape() {
+  if [[ $KEYMAP == vicmd ]]; then
+    print -n -- $'\e[2 q' # 2 = steady block; 1 = blinking block.
+  else
+    print -n -- $'\e[6 q' # 6 = steady beam; 5 = blinking beam.
+  fi
+}
+add-zle-hook-widget keymap-select _zsh_cursor_shape
+# Set the starting cursor before each prompt without wrapping Deja's line-init hook.
+add-zsh-hook precmd _zsh_cursor_shape
 
 # Let Starship display the aws-sso role credential expiry.
 [[ -n ${AWS_SSO_SESSION_EXPIRATION:-} ]] &&
   export AWS_SESSION_EXPIRATION="$AWS_SSO_SESSION_EXPIRATION"
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
