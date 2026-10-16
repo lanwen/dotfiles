@@ -65,6 +65,11 @@ export default {
     },
     {
       match: [
+        "aws.amazon.com/*",
+        "*.aws.amazon.com/*",
+        "https://docker.awsapps.com/*",
+        "cloud.getdbt.com/*",
+        "dbt.com/*",
         "claude.ai/*",
         "grafana.com/*",
         "*.grafana.com/*",
