@@ -21,6 +21,14 @@ compinit
 # fzf completion menu and previews
 #
 ##############################
+export FZF_CTRL_T_OPTS="--height=60% --layout=reverse --border \
+  --preview-window=right:55%:wrap \
+  --preview 'if [ -d {} ]; then
+    eza -lah --group-directories-first --no-permissions --no-user --no-time \
+      --color=always --icons=always -- {}
+  elif [ -f {} ]; then
+    bat --color=always --style=numbers --paging=never --line-range=:200 -- {}
+  fi'"
 source <(fzf --zsh)
 source "/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
 zstyle ':completion:*' menu no
@@ -32,7 +40,7 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview '
   target=${(Q)realpath}
   if [[ -d $target ]]; then
     eza -lah --group-directories-first --no-permissions --no-user --no-time \
-      --color=always --icons -- "$target"
+      --color=always --icons=always -- "$target"
   elif [[ -f $target ]]; then
     bat --color=always --style=numbers --paging=never --line-range=:200 \
       -- "$target"
@@ -62,10 +70,10 @@ zstyle ':fzf-tab:complete:-command-:*' fzf-preview '
 alias ps='procs'
 alias vi='nvim'
 alias eza='eza --group-directories-first' # List folders before files.
-alias ll='eza -lah --git --icons'
-alias lt='eza --tree --level=2 --icons'
-alias tree='eza --tree --level=3 --icons'
-alias ls='eza --icons'
+alias ll='eza -lah --git --icons=always'
+alias lt='eza --tree --level=2 --icons=always'
+alias tree='eza --tree --level=3 --icons=always'
+alias ls='eza --icons=always'
 alias du='dust'
 alias df='duf'
 alias tf=terraform

@@ -2,6 +2,25 @@ schemaVersion: "1"
 agent: claude
 workspace: ${{ env.projectDir }}
 
+env:
+  CODEDB_NO_TELEMETRY: "1"
+
+lifecycle:
+  postCreate:
+    - name: Allow codedb installation downloads
+      command: >-
+        sbx policy allow network --sandbox "$SBX_SANDBOX_NAME"
+        "codedb.codegraff.com:443,api.github.com:443,github.com:443,release-assets.githubusercontent.com:443"
+    - name: Install codedb inside the sandbox
+      timeout: 5m
+      command: |
+        sbx exec -e CODEDB_NO_TELEMETRY=1 "$SBX_SANDBOX_NAME" \
+          bash -c 'set -o pipefail; curl -fsSL https://codedb.codegraff.com/install.sh | bash'
+    - name: Remove codedb installation host grant
+      command: >-
+        sbx policy rm network --sandbox "$SBX_SANDBOX_NAME"
+        --resource codedb.codegraff.com:443 --force
+
 kits:
   - docker.io/sbx/playwright-kit:latest
   - docker.io/sbx/git-ssh-sign-kit:latest
