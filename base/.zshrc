@@ -210,7 +210,8 @@ zstyle ':completion:*' list-colors 'di=1;34'
 # Local commands and package-manager wrappers
 #
 ##############################
-export PATH="/Users/lanwen/.local/bin:$PATH"
+export GOBIN="$HOME/.local/bin"
+export PATH="$GOBIN:$PATH"
 
 ##############################
 #

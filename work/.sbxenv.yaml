@@ -29,10 +29,21 @@ kits:
 mcp:
   servers:
     - name: obsidian
-      command: /usr/bin/env
+      command: /bin/sh
       args:
-        - OBSIDIAN_VAULT=work
-        - obsidian-cli-mcp
+        - -c
+        - |
+          export PATH="/opt/homebrew/bin:$PATH"
+          exec /opt/homebrew/bin/mise exec go@1.27.1 -- /usr/bin/env OBSIDIAN_VAULT=work obsidian-cli-mcp
+    - name: aws-mcp
+      command: /bin/sh
+      args:
+        - -c
+        - |
+          export PATH="/opt/homebrew/bin:$PATH"
+          # The first profile is the default; each call can select another listed profile.
+          export AWS_MCP_PROXY_PROFILES="bw bws uc ucs sw sws"
+          exec /opt/homebrew/bin/mise exec uv@0.12.18 -- uvx mcp-proxy-for-aws-cli@1.7.0 https://aws-mcp.us-east-1.api.aws/mcp
 
 additionalWorkspaces:
   - path: /Users/lanwen/obsidian/

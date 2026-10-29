@@ -31,6 +31,12 @@ type = "plugin_action"
 command = "herdr-last.toggle-workspace"
 description = "toggle to last workspace"
 
+[[keys.command]]
+key = "prefix+ctrl+s"
+type = "plugin_action"
+command = "lanwen.herdr-sbx.open-status"
+description = "Docker Sandboxes"
+
 # Sand-colored labels for Docker Sandboxes machines.
 [ui.sidebar.agents]
 rows = [
