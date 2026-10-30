@@ -3,7 +3,12 @@
 # Development tools (mise)
 #
 ##############################
+export MISE_GO_SET_GOBIN=false
 eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+# Set GOBIN after mise restores inherited environment state.
+export GOBIN="$HOME/.local/bin"
+export PATH="$GOBIN:$PATH"
 
 ##############################
 #
@@ -204,14 +209,6 @@ eval "$(zoxide init --cmd cd zsh)"
 #
 ##############################
 zstyle ':completion:*' list-colors 'di=1;34'
-
-##############################
-#
-# Local commands and package-manager wrappers
-#
-##############################
-export GOBIN="$HOME/.local/bin"
-export PATH="$GOBIN:$PATH"
 
 ##############################
 #

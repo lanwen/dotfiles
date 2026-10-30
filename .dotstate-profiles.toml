@@ -3,6 +3,7 @@ version = 2
 [common]
 synced_files = [
     ".config/herdr/config.toml",
+    ".gitconfig",
     ".gitignore",
 ]
 
@@ -14,7 +15,6 @@ synced_files = [
     ".config/finicky",
     ".config/mise/config.toml",
     ".config/starship.toml",
-    ".gitconfig",
     ".raycast/scripts",
     ".zprofile",
     ".zshrc",
@@ -264,6 +264,7 @@ synced_files = [
     ".claude/CLAUDE.md",
     ".codex/AGENTS.md",
     ".config/aws-sso/config.yaml",
+    ".config/kubernetes-mcp-server/config.toml",
     ".sbxenv.yaml",
 ]
 packages = []

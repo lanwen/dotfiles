@@ -29,21 +29,39 @@ kits:
 mcp:
   servers:
     - name: obsidian
-      command: /bin/sh
+      command: /opt/homebrew/bin/mise
       args:
+        - exec
+        - --
+        - /bin/sh
         - -c
         - |
-          export PATH="/opt/homebrew/bin:$PATH"
-          exec /opt/homebrew/bin/mise exec go@1.27.1 -- /usr/bin/env OBSIDIAN_VAULT=work obsidian-cli-mcp
-    - name: aws-mcp
-      command: /bin/sh
+          export PATH="$PATH:/opt/homebrew/bin"
+          exec /usr/bin/env OBSIDIAN_VAULT=work obsidian-cli-mcp
+    - name: aws
+      command: /opt/homebrew/bin/mise
       args:
+        - exec
+        - --
+        - /bin/bash
         - -c
         - |
-          export PATH="/opt/homebrew/bin:$PATH"
+          export PATH="$PATH:/opt/homebrew/bin"
           # The first profile is the default; each call can select another listed profile.
           export AWS_MCP_PROXY_PROFILES="bw bws uc ucs sw sws"
-          exec /opt/homebrew/bin/mise exec uv@0.12.18 -- uvx mcp-proxy-for-aws-cli@1.7.0 https://aws-mcp.us-east-1.api.aws/mcp
+          # Replace the proxy's vulnerable certifi pin until an upstream release updates it.
+          exec uvx --overrides <(printf '%s\n' "certifi==$CERTIFI_VERSION") "mcp-proxy-for-aws-cli@$AWS_MCP_VERSION" https://aws-mcp.us-east-1.api.aws/mcp --region us-east-1
+    - name: k8s
+      command: /opt/homebrew/bin/mise
+      args:
+        - exec
+        - --
+        - /bin/sh
+        - -c
+        - |
+          export PATH="$PATH:/opt/homebrew/bin"
+          # Allow this pinned release through the host's dependency cooldown.
+          exec uvx --exclude-newer-package "kubernetes-mcp-server=$K8S_RELEASE_CUTOFF" "kubernetes-mcp-server@$K8S_MCP_VERSION" --config "$HOME/.config/kubernetes-mcp-server/config.toml"
 
 additionalWorkspaces:
   - path: /Users/lanwen/obsidian/

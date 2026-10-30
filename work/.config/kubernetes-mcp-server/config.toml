@@ -1,0 +1,6 @@
+kubeconfig = "/Users/lanwen/.kube/octl/all.kubeconfig"
+
+[[denied_resources]]
+group = ""
+version = "v1"
+kind = "Secret"

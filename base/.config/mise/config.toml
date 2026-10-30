@@ -3,5 +3,12 @@ go = "latest"
 java = "temurin-25"
 node = "lts"
 packer = "latest"
+python = "latest"
 terraform = "latest"
-uv = "0.12.18"
+uv = "latest"
+
+[env]
+AWS_MCP_VERSION = "1.7.0"
+CERTIFI_VERSION = "2026.10.23"
+K8S_MCP_VERSION = "0.1.1"
+K8S_RELEASE_CUTOFF = "2026-10-30"
