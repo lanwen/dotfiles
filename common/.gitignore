@@ -1,3 +1,5 @@
 .idea
 codedb.snapshot
 .DS_Store
+.sbx/
+*.sbx/

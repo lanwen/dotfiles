@@ -1,0 +1,49 @@
+# syntax=docker/sandbox-kit:3
+schemaVersion: "3"
+kind: mixin
+displayName: Go, Node.js, Java LTS and pnpm
+description: Latest Go, Node.js, Java LTS and pnpm baked into the overlay, available before install hooks.
+requires:
+  - deb/libc6
+  - deb/libstdc++6
+  - deb/libgcc-s1
+capabilities:
+  - type: com.docker.sandbox/network-policy@1
+    config:
+      runtime:
+        allow:
+          - nodejs.org
+          - go.dev
+          - golang.org
+          - dl.google.com
+          - proxy.golang.org
+          - sum.golang.org
+          - storage.googleapis.com
+          - registry.npmjs.org
+build: |
+  FROM debian:trixie-slim AS install
+  COPY --from=docker.io/sbx/mise:latest /usr/local/bin/mise /usr/local/bin/mise
+  RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl xz-utils libatomic1
+  RUN mise install-into node@latest /opt/sbx-runtimes/node \
+      && mise install-into go@latest /opt/sbx-runtimes/go \
+      && MISE_JAVA_SHORTHAND_VENDOR=temurin mise install-into java@lts /opt/sbx-runtimes/java \
+      && mise install-into pnpm@latest /opt/sbx-runtimes/pnpm \
+      && mkdir -p /overlay/usr/local/bin \
+      && ln -s /opt/sbx-runtimes/node/bin/node /overlay/usr/local/bin/node \
+      && ln -s /opt/sbx-runtimes/pnpm/pnpm /overlay/usr/local/bin/pnpm \
+      && ln -s /opt/sbx-runtimes/go/bin/go /overlay/usr/local/bin/go \
+      && ln -s /opt/sbx-runtimes/go/bin/gofmt /overlay/usr/local/bin/gofmt \
+      && for binary in /opt/sbx-runtimes/java/bin/*; do \
+           ln -s "$binary" /overlay/usr/local/bin/; \
+         done
+  RUN PATH="/overlay/usr/local/bin:$PATH" node --version \
+      && PATH="/overlay/usr/local/bin:$PATH" pnpm --version \
+      && PATH="/overlay/usr/local/bin:$PATH" go version \
+      && PATH="/overlay/usr/local/bin:$PATH" java -version \
+      && PATH="/overlay/usr/local/bin:$PATH" javac -version
+  # Node on ARM64 needs libatomic even when the base workload does not ship it.
+  RUN for library in /usr/lib/*/libatomic.so.1; do cp --parents -L "$library" /overlay/; done
+  FROM scratch
+  ENV JAVA_HOME=/opt/sbx-runtimes/java
+  COPY --from=install /opt/sbx-runtimes /opt/sbx-runtimes
+  COPY --from=install /overlay/ /

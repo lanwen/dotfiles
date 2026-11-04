@@ -265,6 +265,8 @@ synced_files = [
     ".codex/AGENTS.md",
     ".config/aws-sso/config.yaml",
     ".config/kubernetes-mcp-server/config.toml",
+    ".config/sbx/kits",
     ".sbxenv.yaml",
+    ".sbxenv.infra.yaml",
 ]
 packages = []

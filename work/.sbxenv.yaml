@@ -1,11 +1,16 @@
 schemaVersion: "1"
 agent: claude
-workspace: ${{ env.projectDir }}
+workspace:
+  path: ${{ env.projectDir }}
+  clone: true
 
 env:
   CODEDB_NO_TELEMETRY: "1"
 
 lifecycle:
+  initialize:
+    - name: Create shared sandbox directory
+      command: mkdir -p -- "$SBX_ENV_DIR.sbx"
   postCreate:
     - name: Allow codedb installation downloads
       command: >-
@@ -22,9 +27,15 @@ lifecycle:
         --resource codedb.codegraff.com:443 --force
 
 kits:
-  - docker.io/sbx/playwright-kit:latest
-  - docker.io/sbx/git-ssh-sign-kit:latest
-  - docker.io/sbx/github-ssh-kit:latest
+  - docker.io/sbx/claude:latest
+  - docker.io/sbx/codex-mixin:latest
+  - ${{ env.fileDir }}/.config/sbx/kits/agent-updates
+  # - docker.io/sbx/claude-sessions:latest
+  - docker.io/sbx/mise:latest
+  - ${{ env.fileDir }}/.config/sbx/kits/runtimes
+  - docker.io/sbx/playwright:latest
+  - docker.io/sbx/git-ssh-sign:latest
+  - docker.io/sbx/github-ssh:latest
 
 mcp:
   servers:
@@ -37,31 +48,8 @@ mcp:
         - -c
         - |
           export PATH="$PATH:/opt/homebrew/bin"
-          exec /usr/bin/env OBSIDIAN_VAULT=work obsidian-cli-mcp
-    - name: aws
-      command: /opt/homebrew/bin/mise
-      args:
-        - exec
-        - --
-        - /bin/bash
-        - -c
-        - |
-          export PATH="$PATH:/opt/homebrew/bin"
-          # The first profile is the default; each call can select another listed profile.
-          export AWS_MCP_PROXY_PROFILES="bw bws uc ucs sw sws"
-          # Replace the proxy's vulnerable certifi pin until an upstream release updates it.
-          exec uvx --overrides <(printf '%s\n' "certifi==$CERTIFI_VERSION") "mcp-proxy-for-aws-cli@$AWS_MCP_VERSION" https://aws-mcp.us-east-1.api.aws/mcp --region us-east-1
-    - name: k8s
-      command: /opt/homebrew/bin/mise
-      args:
-        - exec
-        - --
-        - /bin/sh
-        - -c
-        - |
-          export PATH="$PATH:/opt/homebrew/bin"
-          # Allow this pinned release through the host's dependency cooldown.
-          exec uvx --exclude-newer-package "kubernetes-mcp-server=$K8S_RELEASE_CUTOFF" "kubernetes-mcp-server@$K8S_MCP_VERSION" --config "$HOME/.config/kubernetes-mcp-server/config.toml"
+          exec /usr/bin/env OBSIDIAN_VAULT=work "$HOME/.local/bin/obsidian-cli-mcp"
 
 additionalWorkspaces:
+  - path: ${{ env.projectDir }}.sbx
   - path: /Users/lanwen/obsidian/

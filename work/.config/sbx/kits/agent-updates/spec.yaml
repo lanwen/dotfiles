@@ -1,0 +1,51 @@
+# syntax=docker/sandbox-kit:3
+schemaVersion: "3"
+kind: mixin
+displayName: Claude and Codex updates
+description: Update both agent CLIs at sandbox startup.
+requires:
+  - claude
+  - codex
+capabilities:
+  - type: com.docker.sandbox/network-policy@1
+    config:
+      runtime:
+        allow:
+          - claude.ai
+          - downloads.claude.ai
+          - storage.googleapis.com
+          - chatgpt.com
+          - releases.openai.com
+          - github.com
+          - api.github.com
+          - objects.githubusercontent.com
+          - release-assets.githubusercontent.com
+  - type: com.docker.sandbox/lifecycle@1
+    config:
+      startup:
+        - description: Update Claude and Codex as the agent user
+          user: "1000"
+          env:
+            - CODEX_HOME
+            - HTTP_PROXY
+            - HTTPS_PROXY
+            - NO_PROXY
+            - http_proxy
+            - https_proxy
+            - no_proxy
+            - SSL_CERT_FILE
+            - SSL_CERT_DIR
+            - REQUESTS_CA_BUNDLE
+            - CURL_CA_BUNDLE
+            - NODE_EXTRA_CA_CERTS
+          command:
+            - bash
+            - -lc
+            - |
+              set -euo pipefail
+              export PATH="$HOME/.local/bin:$PATH"
+              export CODEX_NON_INTERACTIVE=1
+              claude update
+              curl -fsSL https://chatgpt.com/codex/install.sh | sh
+              claude --version
+              codex --version

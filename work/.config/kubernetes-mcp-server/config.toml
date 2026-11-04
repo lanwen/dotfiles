@@ -1,4 +1,5 @@
 kubeconfig = "/Users/lanwen/.kube/octl/all.kubeconfig"
+cluster_state_poll_interval = "-1s"
 
 [[denied_resources]]
 group = ""

@@ -1,0 +1,27 @@
+schemaVersion: "1"
+
+mcp:
+  servers:
+    - name: aws
+      command: /opt/homebrew/bin/mise
+      args:
+        - exec
+        - --
+        - /bin/bash
+        - -c
+        - |
+          export PATH="$PATH:/opt/homebrew/bin"
+          # The first profile is the default; each call can select another listed profile.
+          export AWS_MCP_PROXY_PROFILES="bw bws uc ucs sw sws"
+          # Replace the proxy's vulnerable certifi pin until an upstream release updates it.
+          exec uvx --python 3.13 --overrides <(printf '%s\n' "certifi==$CERTIFI_VERSION") "mcp-proxy-for-aws-cli@$AWS_MCP_VERSION" https://aws-mcp.us-east-1.api.aws/mcp --region us-east-1
+    - name: k8s
+      command: /opt/homebrew/bin/mise
+      args:
+        - exec
+        - --
+        - /bin/sh
+        - -c
+        - |
+          export PATH="$PATH:/opt/homebrew/bin"
+          exec "$HOME/.local/bin/kubernetes-mcp-server" --config "$HOME/.config/kubernetes-mcp-server/config.toml"
