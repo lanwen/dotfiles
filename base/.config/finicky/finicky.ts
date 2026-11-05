@@ -69,6 +69,7 @@ export default {
         "*.aws.amazon.com/*",
         "https://docker.awsapps.com/*",
         "cloud.getdbt.com/*",
+        "offload.internal.tools/*",
         "dbt.com/*",
         "claude.ai/*",
         "grafana.com/*",
