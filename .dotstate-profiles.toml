@@ -2,6 +2,7 @@ version = 2
 
 [common]
 synced_files = [
+    ".claude/CLAUDE.md",
     ".config/herdr/config.toml",
     ".gitconfig",
     ".gitignore",
@@ -261,12 +262,11 @@ inherits = "base"
 synced_files = [
     ".agents/CODING_STANDARDS.md",
     ".agents/rules",
-    ".claude/CLAUDE.md",
     ".codex/AGENTS.md",
     ".config/aws-sso/config.yaml",
     ".config/kubernetes-mcp-server/config.toml",
     ".config/sbx/kits",
-    ".sbxenv.yaml",
     ".sbxenv.infra.yaml",
+    ".sbxenv.yaml",
 ]
 packages = []

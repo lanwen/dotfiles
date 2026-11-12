@@ -284,4 +284,4 @@ add-zsh-hook precmd _zsh_cursor_shape
 #
 ##############################
 source \
-  $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

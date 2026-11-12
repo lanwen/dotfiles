@@ -8,9 +8,6 @@ env:
   CODEDB_NO_TELEMETRY: "1"
 
 lifecycle:
-  initialize:
-    - name: Create shared sandbox directory
-      command: mkdir -p -- "$SBX_ENV_DIR.sbx"
   postCreate:
     - name: Allow codedb installation downloads
       command: >-
@@ -51,5 +48,4 @@ mcp:
           exec /usr/bin/env OBSIDIAN_VAULT=work "$HOME/.local/bin/obsidian-cli-mcp"
 
 additionalWorkspaces:
-  - path: ${{ env.projectDir }}.sbx
   - path: /Users/lanwen/obsidian/

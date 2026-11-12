@@ -53,6 +53,13 @@ export default {
     },
     // Work links. Finicky globs are case-sensitive.
     {
+      match: (url: URL) =>
+        url.origin === "https://accounts.google.com" &&
+        url.pathname === "/o/oauth2/auth" &&
+        url.searchParams.get("client_id") === "32555940559.apps.googleusercontent.com",
+      browser: workFirefox,
+    },
+    {
       match: [
         "https://github.com/docker",
         "http://github.com/docker",

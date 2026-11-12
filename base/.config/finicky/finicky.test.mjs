@@ -64,6 +64,24 @@ for (const [href, directory] of cases) {
     assert.equal(handler, undefined, href);
   }
 }
+for (const [href, expectedWork] of [
+  ["https://accounts.google.com/o/oauth2/auth?client_id=32555940559.apps.googleusercontent.com", true],
+  ["https://accounts.google.com/o/oauth2/auth?scope=email&client_id=32555940559.apps.googleusercontent.com&state=test", true],
+  ["https://accounts.google.com/o/oauth2/auth?client_id=other.apps.googleusercontent.com", false],
+  ["https://accounts.google.com/o/oauth2/auth", false],
+  ["https://accounts.google.com/other?client_id=32555940559.apps.googleusercontent.com", false],
+  ["https://accounts.google.com.example.org/o/oauth2/auth?client_id=32555940559.apps.googleusercontent.com", false],
+]) {
+  const url = new URL(href);
+  const options = { opener: null };
+  const handler = config.handlers.find((handler) => matches(handler.match, url, options));
+  if (expectedWork) {
+    assert.equal(handler?.browser(url, options).args[3],
+      "/Users/lanwen/Library/Application Support/Firefox/Profiles/cP89VZaw.Profile 1", href);
+  } else {
+    assert.equal(handler, undefined, href);
+  }
+}
 for (const opener of [
   { name: "submarine" },
   { name: "Submarine" },
