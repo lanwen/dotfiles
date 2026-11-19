@@ -1,0 +1,2 @@
+[tasks.bbd]
+run = "brew bundle dump --force --file ./Brewfile --no-describe --formula --cask --tap"

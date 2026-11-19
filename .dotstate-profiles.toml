@@ -4,6 +4,7 @@ version = 2
 synced_files = [
     ".claude/CLAUDE.md",
     ".config/herdr/config.toml",
+    ".config/rex/init.lua",
     ".gitconfig",
     ".gitignore",
 ]
